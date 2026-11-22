@@ -14,6 +14,8 @@ A static website for exploring Sino-Japanese (漢語) vocabulary, one kanji at a
   like 挨拶 and 珊瑚 that only make words with each other.
 - **Core 257** (`docs/core.html`): the densest part of the web (maximum k-core), where each kanji
   links to at least 10 others in the group.
+- **Map** (`docs/map.html`): two skeleton diagrams. One shows the 27 neighbourhoods and the strongest
+  links between them; the other shows each neighbourhood's top three kanji and every word joining them.
 - **Graph data** (`docs/graph.json`): every kanji's neighbourhood and centrality scores (degree,
   betweenness, eigenvector, closeness). `python3 scripts/graph.py` prints a summary.
 

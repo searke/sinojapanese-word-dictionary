@@ -16,6 +16,7 @@ from collections import defaultdict
 from pathlib import Path
 
 import graph
+import maps
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -279,7 +280,7 @@ def page(title, body, depth):
 <body><main>
 <header class="site"><a href="{up}index.html">漢語 · Sino-Japanese explorer</a>
 <nav class="top"><a href="{up}index.html">音読み</a><a href="{up}neighbourhoods.html">Neighbourhoods</a>
-<a href="{up}core.html">Core 257</a></nav></header>
+<a href="{up}core.html">Core 257</a><a href="{up}map.html">Map</a></nav></header>
 {body}
 <footer class="muted" style="margin-top:48px;font-size:12px">
 Data: <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> &amp;
@@ -380,7 +381,7 @@ def build_graph_pages(G, words, kinfo, pages):
             "between two towns. Nearly all kanji end up in one big web, and the web falls naturally "
             "into neighbourhoods: groups of kanji that form far more words with each other than with "
             "the rest. The groups were found automatically (Louvain community detection); "
-            "the names are hand-picked to fit.</p>",
+            "the names are hand-picked to fit. See them laid out on the <a href='map.html' style='color:var(--accent)'>map</a>.</p>",
             '<div class="stats">' + "".join(f"<div><b>{v}</b><span>{esc(t)}</span></div>" for v, t in stats)
             + "</div>", '<div class="hoods">']
     for h in hoods:
@@ -421,6 +422,9 @@ def build_graph_pages(G, words, kinfo, pages):
         body.append("</ul>" + FILTER_JS)
         (OUT / "n" / f'{h["id"]}.html').write_text(page(f'{h["hub"]} · {h["name"]}', "\n".join(body), 1), "utf-8")
 
+    (OUT / "map.html").write_text(
+        page("Map of the kanji web", maps.map_body(G, words, kinfo, legend(False)), 0), "utf-8")
+
     # ---- core page
     core = [c for c, v in G["kanji"].items() if v["core"]]
     body = [f"<h1>The core {len(core)}</h1>",
@@ -456,7 +460,7 @@ def build():
     if OUT.exists():
         shutil.rmtree(OUT)
     (OUT / "k").mkdir(parents=True)
-    (OUT / "style.css").write_text(CSS, "utf-8")
+    (OUT / "style.css").write_text(CSS + maps.MAP_CSS, "utf-8")
     (OUT / ".nojekyll").write_text("", "utf-8")
 
     for c, groups in by_kanji.items():

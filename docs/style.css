@@ -78,3 +78,20 @@ overflow-wrap:anywhere}
 .stats b{display:block;font-size:22px}.stats span{font-size:12px;color:var(--muted)}
 .islands{display:flex;flex-wrap:wrap;gap:8px}
 .lvlpill{display:inline-block;color:#fff;background:var(--lc);border-radius:99px;padding:0 10px;font-size:13px;font-weight:600}
+
+.mapwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.map{width:100%;min-width:640px;height:auto;display:block;background:var(--card);border:1px solid var(--line);
+border-radius:12px;margin:12px 0}
+.map .edge{stroke:var(--muted);stroke-opacity:.45;stroke-linecap:round}
+.map .edge.in{stroke:var(--accent);stroke-opacity:.6;stroke-width:2}
+.map .edge.out{stroke-width:1;stroke-opacity:.25}
+.map .edge:hover{stroke:var(--accent);stroke-opacity:1}
+.map .hnode circle{fill:var(--bg);stroke:var(--accent);stroke-width:2.5}
+.map .knode circle{fill:var(--bg);stroke:var(--lc);stroke-width:3}
+.map a:hover circle{fill:var(--hl)}
+.map .hk{text-anchor:middle;fill:var(--fg);font-family:"Hiragino Mincho ProN","Noto Serif JP",serif}
+.map .hl{text-anchor:middle;fill:var(--muted);font-size:19px;font-weight:600;
+paint-order:stroke;stroke:var(--card);stroke-width:5px;stroke-linejoin:round}
+table.links{border-collapse:collapse;font-size:14px;width:100%}
+table.links td{border-top:1px solid var(--line);padding:4px 6px}
+table.links td:last-child{text-align:right;font-variant-numeric:tabular-nums}
