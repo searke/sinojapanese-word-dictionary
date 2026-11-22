@@ -5,18 +5,26 @@
 <body><main>
 <header class="site"><a href="../index.html">漢語 · Sino-Japanese explorer</a>
 <span class="muted">音読み index</span></header>
-<div class="hero"><div class="big">操</div><div><h1 style="margin:0">maneuver, manipulate, operate, steer, chastity</h1><p class="muted" style="margin:4px 0 8px">grade 6 · old JLPT 2 · 16 strokes · 5 words</p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-そう">そう</a></dd><dt>Other on'yomi</dt><dd>さん</dd><dt>Kun'yomi</dt><dd>みさお、あやつ.る</dd></dl></div></div>
+<div class="hero"><div class="big">操</div><div><h1 style="margin:0">maneuver, manipulate, operate, steer, chastity</h1><p class="muted" style="margin:4px 0 8px">grade 6 · old JLPT 2 · 16 strokes · 5 words</p><p class="lv2" style="margin:0 0 10px"><span class="lvlpill">Kanji level: Elementary</span></p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-そう">そう</a></dd><dt>Other on'yomi</dt><dd>さん</dd><dt>Kun'yomi</dt><dd>みさお、あやつ.る</dd></dl></div></div>
+<div class="legend"><button class="lv1" data-lv="1" title="the ~250 most basic kanji (old JLPT 4–3)"><i></i>Beginner</button><button class="lv2" data-lv="2" title="taught in Japanese elementary school"><i></i>Elementary</button><button class="lv3" data-lv="3" title="secondary-school jōyō kanji in common use"><i></i>Intermediate</button><button class="lv4" data-lv="4" title="the remaining jōyō kanji"><i></i>Advanced</button><button class="lv5" data-lv="5" title="uses a kanji outside the jōyō list"><i></i>Rare</button><span class="muted" style="font-size:12px">Word level = its hardest kanji. Click to hide/show a level.</span></div>
 <section class="on" id="on-そう"><h2>操 〔そう〕</h2>
 <h3>操〇 — 操 first (3)</h3><ul class='words'>
-<li><div class="w"><span class="self">操</span><a href="696d.html">業</a></div><div class="r"><b>そう</b>ぎょう</div><div class="g">operation (of a machine, factory, fishing boat, etc.); work</div></li>
-<li><div class="w"><span class="self">操</span><a href="4f5c.html">作</a></div><div class="r"><b>そう</b>さ</div><div class="g">operation; management; handling; manipulating (to one&#x27;s benefit)</div></li>
-<li><div class="w"><span class="self">操</span><a href="7e26.html">縦</a></div><div class="r"><b>そう</b>じゅう</div><div class="g">steering; piloting; flying; control</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">操</span><a href="696d.html">業</a></div><div class="r"><b>そう</b>ぎょう</div><div class="g">operation (of a machine, factory, fishing boat, etc.); work</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">操</span><a href="4f5c.html">作</a></div><div class="r"><b>そう</b>さ</div><div class="g">operation; management; handling; manipulating (to one&#x27;s benefit)</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">操</span><a href="7e26.html">縦</a></div><div class="r"><b>そう</b>じゅう</div><div class="g">steering; piloting; flying; control</div></li>
 </ul>
 <h3>〇操 — 操 second (2)</h3><ul class='words'>
-<li><div class="w"><a href="7bc0.html">節</a><span class="self">操</span></div><div class="r">せっ<b>そう</b></div><div class="g">integrity; fidelity; constancy; principle</div></li>
-<li><div class="w"><a href="4f53.html">体</a><span class="self">操</span></div><div class="r">たい<b>そう</b></div><div class="g">gymnastics; physical exercises; artistic gymnastics; gymnastics competition</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><a href="7bc0.html">節</a><span class="self">操</span></div><div class="r">せっ<b>そう</b></div><div class="g">integrity; fidelity; constancy; principle</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><a href="4f53.html">体</a><span class="self">操</span></div><div class="r">たい<b>そう</b></div><div class="g">gymnastics; physical exercises; artistic gymnastics; gymnastics competition</div></li>
 </ul>
 </section>
+<script>
+document.querySelectorAll('.legend button').forEach(b=>b.addEventListener('click',()=>{
+ b.classList.toggle('off');
+ const off=[...document.querySelectorAll('.legend button.off')].map(x=>x.dataset.lv);
+ document.querySelectorAll('ul.words li').forEach(li=>li.classList.toggle('hidden',off.includes(li.dataset.lv)));
+}));
+</script>
 <footer class="muted" style="margin-top:48px;font-size:12px">
 Data: <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> &amp;
 <a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project">KANJIDIC2</a>

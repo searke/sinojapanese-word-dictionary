@@ -5,20 +5,28 @@
 <body><main>
 <header class="site"><a href="../index.html">漢語 · Sino-Japanese explorer</a>
 <span class="muted">音読み index</span></header>
-<div class="hero"><div class="big">印</div><div><h1 style="margin:0">stamp, seal, mark, imprint, symbol</h1><p class="muted" style="margin:4px 0 8px">grade 4 · old JLPT 2 · 6 strokes · 7 words</p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-いん">いん</a></dd><dt>Kun'yomi</dt><dd>しるし、-じるし、しる.す</dd></dl></div></div>
+<div class="hero"><div class="big">印</div><div><h1 style="margin:0">stamp, seal, mark, imprint, symbol</h1><p class="muted" style="margin:4px 0 8px">grade 4 · old JLPT 2 · 6 strokes · 7 words</p><p class="lv2" style="margin:0 0 10px"><span class="lvlpill">Kanji level: Elementary</span></p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-いん">いん</a></dd><dt>Kun'yomi</dt><dd>しるし、-じるし、しる.す</dd></dl></div></div>
+<div class="legend"><button class="lv1" data-lv="1" title="the ~250 most basic kanji (old JLPT 4–3)"><i></i>Beginner</button><button class="lv2" data-lv="2" title="taught in Japanese elementary school"><i></i>Elementary</button><button class="lv3" data-lv="3" title="secondary-school jōyō kanji in common use"><i></i>Intermediate</button><button class="lv4" data-lv="4" title="the remaining jōyō kanji"><i></i>Advanced</button><button class="lv5" data-lv="5" title="uses a kanji outside the jōyō list"><i></i>Rare</button><span class="muted" style="font-size:12px">Word level = its hardest kanji. Click to hide/show a level.</span></div>
 <section class="on" id="on-いん"><h2>印 〔いん〕</h2>
 <h3>印〇 — 印 first (5)</h3><ul class='words'>
-<li><div class="w"><span class="self">印</span><a href="9451.html">鑑</a></div><div class="r"><b>いん</b>かん</div><div class="g">stamp; seal</div></li>
-<li><div class="w"><span class="self">印</span><a href="5237.html">刷</a></div><div class="r"><b>いん</b>さつ</div><div class="g">printing</div></li>
-<li><div class="w"><span class="self">印</span><a href="7d19.html">紙</a></div><div class="r"><b>いん</b>し</div><div class="g">(revenue) stamp</div></li>
-<li><div class="w"><span class="self">印</span><a href="8c61.html">象</a></div><div class="r"><b>いん</b>しょう</div><div class="g">impression</div></li>
-<li><div class="w"><span class="self">印</span><a href="7a0e.html">税</a></div><div class="r"><b>いん</b>ぜい</div><div class="g">royalty (on book)</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">印</span><a href="9451.html">鑑</a></div><div class="r"><b>いん</b>かん</div><div class="g">stamp; seal</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">印</span><a href="5237.html">刷</a></div><div class="r"><b>いん</b>さつ</div><div class="g">printing</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">印</span><a href="7d19.html">紙</a></div><div class="r"><b>いん</b>し</div><div class="g">(revenue) stamp</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">印</span><a href="8c61.html">象</a></div><div class="r"><b>いん</b>しょう</div><div class="g">impression</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">印</span><a href="7a0e.html">税</a></div><div class="r"><b>いん</b>ぜい</div><div class="g">royalty (on book)</div></li>
 </ul>
 <h3>〇印 — 印 second (2)</h3><ul class='words'>
-<li><div class="w"><a href="6731.html">朱</a><span class="self">印</span></div><div class="r">しゅ<b>いん</b></div><div class="g">red seal</div></li>
-<li><div class="w"><a href="8abf.html">調</a><span class="self">印</span></div><div class="r">ちょう<b>いん</b></div><div class="g">signature; signing; sealing</div></li>
+<li class="lv4" data-lv="4"><span class="badge">Advanced</span><div class="w"><a href="6731.html">朱</a><span class="self">印</span></div><div class="r">しゅ<b>いん</b></div><div class="g">red seal</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><a href="8abf.html">調</a><span class="self">印</span></div><div class="r">ちょう<b>いん</b></div><div class="g">signature; signing; sealing</div></li>
 </ul>
 </section>
+<script>
+document.querySelectorAll('.legend button').forEach(b=>b.addEventListener('click',()=>{
+ b.classList.toggle('off');
+ const off=[...document.querySelectorAll('.legend button.off')].map(x=>x.dataset.lv);
+ document.querySelectorAll('ul.words li').forEach(li=>li.classList.toggle('hidden',off.includes(li.dataset.lv)));
+}));
+</script>
 <footer class="muted" style="margin-top:48px;font-size:12px">
 Data: <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> &amp;
 <a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project">KANJIDIC2</a>

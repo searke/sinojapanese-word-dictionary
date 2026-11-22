@@ -5,12 +5,20 @@
 <body><main>
 <header class="site"><a href="../index.html">漢語 · Sino-Japanese explorer</a>
 <span class="muted">音読み index</span></header>
-<div class="hero"><div class="big">燵</div><div><h1 style="margin:0">foot warmer, (kokuji)</h1><p class="muted" style="margin:4px 0 8px">17 strokes · 1 words</p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-たつ">たつ</a></dd></dl></div></div>
+<div class="hero"><div class="big">燵</div><div><h1 style="margin:0">foot warmer, (kokuji)</h1><p class="muted" style="margin:4px 0 8px">17 strokes · 1 words</p><p class="lv5" style="margin:0 0 10px"><span class="lvlpill">Kanji level: Rare</span></p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-たつ">たつ</a></dd></dl></div></div>
+<div class="legend"><button class="lv1" data-lv="1" title="the ~250 most basic kanji (old JLPT 4–3)"><i></i>Beginner</button><button class="lv2" data-lv="2" title="taught in Japanese elementary school"><i></i>Elementary</button><button class="lv3" data-lv="3" title="secondary-school jōyō kanji in common use"><i></i>Intermediate</button><button class="lv4" data-lv="4" title="the remaining jōyō kanji"><i></i>Advanced</button><button class="lv5" data-lv="5" title="uses a kanji outside the jōyō list"><i></i>Rare</button><span class="muted" style="font-size:12px">Word level = its hardest kanji. Click to hide/show a level.</span></div>
 <section class="on" id="on-たつ"><h2>燵 〔たつ〕</h2>
 <h3>〇燵 — 燵 second (1)</h3><ul class='words'>
-<li><div class="w"><a href="70ac.html">炬</a><span class="self">燵</span></div><div class="r">こ<b>たつ</b></div><div class="g">kotatsu; table over an electric heater, with a hanging quilt to retain heat (orig. over a charcoal brazier in a floor well)</div></li>
+<li class="lv5" data-lv="5"><span class="badge">Rare</span><div class="w"><a href="70ac.html">炬</a><span class="self">燵</span></div><div class="r">こ<b>たつ</b></div><div class="g">kotatsu; table over an electric heater, with a hanging quilt to retain heat (orig. over a charcoal brazier in a floor well)</div></li>
 </ul>
 </section>
+<script>
+document.querySelectorAll('.legend button').forEach(b=>b.addEventListener('click',()=>{
+ b.classList.toggle('off');
+ const off=[...document.querySelectorAll('.legend button.off')].map(x=>x.dataset.lv);
+ document.querySelectorAll('ul.words li').forEach(li=>li.classList.toggle('hidden',off.includes(li.dataset.lv)));
+}));
+</script>
 <footer class="muted" style="margin-top:48px;font-size:12px">
 Data: <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> &amp;
 <a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project">KANJIDIC2</a>

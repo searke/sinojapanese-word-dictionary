@@ -5,18 +5,26 @@
 <body><main>
 <header class="site"><a href="../index.html">漢語 · Sino-Japanese explorer</a>
 <span class="muted">音読み index</span></header>
-<div class="hero"><div class="big">蓄</div><div><h1 style="margin:0">amass, raise, hoard, store</h1><p class="muted" style="margin:4px 0 8px">grade 8 · old JLPT 1 · 13 strokes · 5 words</p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-ちく">ちく</a></dd><dt>Kun'yomi</dt><dd>たくわ.える</dd></dl></div></div>
+<div class="hero"><div class="big">蓄</div><div><h1 style="margin:0">amass, raise, hoard, store</h1><p class="muted" style="margin:4px 0 8px">grade 8 · old JLPT 1 · 13 strokes · 5 words</p><p class="lv3" style="margin:0 0 10px"><span class="lvlpill">Kanji level: Intermediate</span></p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-ちく">ちく</a></dd><dt>Kun'yomi</dt><dd>たくわ.える</dd></dl></div></div>
+<div class="legend"><button class="lv1" data-lv="1" title="the ~250 most basic kanji (old JLPT 4–3)"><i></i>Beginner</button><button class="lv2" data-lv="2" title="taught in Japanese elementary school"><i></i>Elementary</button><button class="lv3" data-lv="3" title="secondary-school jōyō kanji in common use"><i></i>Intermediate</button><button class="lv4" data-lv="4" title="the remaining jōyō kanji"><i></i>Advanced</button><button class="lv5" data-lv="5" title="uses a kanji outside the jōyō list"><i></i>Rare</button><span class="muted" style="font-size:12px">Word level = its hardest kanji. Click to hide/show a level.</span></div>
 <section class="on" id="on-ちく"><h2>蓄 〔ちく〕</h2>
 <h3>蓄〇 — 蓄 first (2)</h3><ul class='words'>
-<li><div class="w"><span class="self">蓄</span><a href="8ca1.html">財</a></div><div class="r"><b>ちく</b>ざい</div><div class="g">amassing of wealth</div></li>
-<li><div class="w"><span class="self">蓄</span><a href="7a4d.html">積</a></div><div class="r"><b>ちく</b>せき</div><div class="g">accumulation; accumulate; store</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">蓄</span><a href="8ca1.html">財</a></div><div class="r"><b>ちく</b>ざい</div><div class="g">amassing of wealth</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">蓄</span><a href="7a4d.html">積</a></div><div class="r"><b>ちく</b>せき</div><div class="g">accumulation; accumulate; store</div></li>
 </ul>
 <h3>〇蓄 — 蓄 second (3)</h3><ul class='words'>
-<li><div class="w"><a href="542b.html">含</a><span class="self">蓄</span></div><div class="r">がん<b>ちく</b></div><div class="g">implication; significance; connotation; depth of meaning</div></li>
-<li><div class="w"><a href="8caf.html">貯</a><span class="self">蓄</span></div><div class="r">ちょ<b>ちく</b></div><div class="g">savings</div></li>
-<li><div class="w"><a href="5099.html">備</a><span class="self">蓄</span></div><div class="r">び<b>ちく</b></div><div class="g">stocking up (in case of emergency); stockpile; reserves; storing</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><a href="542b.html">含</a><span class="self">蓄</span></div><div class="r">がん<b>ちく</b></div><div class="g">implication; significance; connotation; depth of meaning</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><a href="8caf.html">貯</a><span class="self">蓄</span></div><div class="r">ちょ<b>ちく</b></div><div class="g">savings</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><a href="5099.html">備</a><span class="self">蓄</span></div><div class="r">び<b>ちく</b></div><div class="g">stocking up (in case of emergency); stockpile; reserves; storing</div></li>
 </ul>
 </section>
+<script>
+document.querySelectorAll('.legend button').forEach(b=>b.addEventListener('click',()=>{
+ b.classList.toggle('off');
+ const off=[...document.querySelectorAll('.legend button.off')].map(x=>x.dataset.lv);
+ document.querySelectorAll('ul.words li').forEach(li=>li.classList.toggle('hidden',off.includes(li.dataset.lv)));
+}));
+</script>
 <footer class="muted" style="margin-top:48px;font-size:12px">
 Data: <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> &amp;
 <a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project">KANJIDIC2</a>

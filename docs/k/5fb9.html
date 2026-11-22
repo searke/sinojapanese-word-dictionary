@@ -5,17 +5,25 @@
 <body><main>
 <header class="site"><a href="../index.html">漢語 · Sino-Japanese explorer</a>
 <span class="muted">音読み index</span></header>
-<div class="hero"><div class="big">徹</div><div><h1 style="margin:0">penetrate, clear, pierce, strike home, sit up (all night)</h1><p class="muted" style="margin:4px 0 8px">grade 8 · old JLPT 1 · 15 strokes · 4 words</p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-てつ">てつ</a></dd></dl></div></div>
+<div class="hero"><div class="big">徹</div><div><h1 style="margin:0">penetrate, clear, pierce, strike home, sit up (all night)</h1><p class="muted" style="margin:4px 0 8px">grade 8 · old JLPT 1 · 15 strokes · 4 words</p><p class="lv3" style="margin:0 0 10px"><span class="lvlpill">Kanji level: Intermediate</span></p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-てつ">てつ</a></dd></dl></div></div>
+<div class="legend"><button class="lv1" data-lv="1" title="the ~250 most basic kanji (old JLPT 4–3)"><i></i>Beginner</button><button class="lv2" data-lv="2" title="taught in Japanese elementary school"><i></i>Elementary</button><button class="lv3" data-lv="3" title="secondary-school jōyō kanji in common use"><i></i>Intermediate</button><button class="lv4" data-lv="4" title="the remaining jōyō kanji"><i></i>Advanced</button><button class="lv5" data-lv="5" title="uses a kanji outside the jōyō list"><i></i>Rare</button><span class="muted" style="font-size:12px">Word level = its hardest kanji. Click to hide/show a level.</span></div>
 <section class="on" id="on-てつ"><h2>徹 〔てつ〕</h2>
 <h3>徹〇 — 徹 first (2)</h3><ul class='words'>
-<li><div class="w"><span class="self">徹</span><a href="5e95.html">底</a></div><div class="r"><b>てっ</b>てい</div><div class="g">thoroughness; completeness; consistency; thorough enforcement</div></li>
-<li><div class="w"><span class="self">徹</span><a href="591c.html">夜</a></div><div class="r"><b>てつ</b>や</div><div class="g">staying up all night</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">徹</span><a href="5e95.html">底</a></div><div class="r"><b>てっ</b>てい</div><div class="g">thoroughness; completeness; consistency; thorough enforcement</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">徹</span><a href="591c.html">夜</a></div><div class="r"><b>てつ</b>や</div><div class="g">staying up all night</div></li>
 </ul>
 <h3>〇徹 — 徹 second (2)</h3><ul class='words'>
-<li><div class="w"><a href="8cab.html">貫</a><span class="self">徹</span></div><div class="r">かん<b>てつ</b></div><div class="g">accomplishment; realization; attainment; fulfillment</div></li>
-<li><div class="w"><a href="51b7.html">冷</a><span class="self">徹</span></div><div class="r">れい<b>てつ</b></div><div class="g">cool-headed; level-headed; hard-headed</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><a href="8cab.html">貫</a><span class="self">徹</span></div><div class="r">かん<b>てつ</b></div><div class="g">accomplishment; realization; attainment; fulfillment</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><a href="51b7.html">冷</a><span class="self">徹</span></div><div class="r">れい<b>てつ</b></div><div class="g">cool-headed; level-headed; hard-headed</div></li>
 </ul>
 </section>
+<script>
+document.querySelectorAll('.legend button').forEach(b=>b.addEventListener('click',()=>{
+ b.classList.toggle('off');
+ const off=[...document.querySelectorAll('.legend button.off')].map(x=>x.dataset.lv);
+ document.querySelectorAll('ul.words li').forEach(li=>li.classList.toggle('hidden',off.includes(li.dataset.lv)));
+}));
+</script>
 <footer class="muted" style="margin-top:48px;font-size:12px">
 Data: <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> &amp;
 <a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project">KANJIDIC2</a>

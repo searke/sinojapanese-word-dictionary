@@ -5,17 +5,25 @@
 <body><main>
 <header class="site"><a href="../index.html">漢語 · Sino-Japanese explorer</a>
 <span class="muted">音読み index</span></header>
-<div class="hero"><div class="big">輩</div><div><h1 style="margin:0">comrade, fellow, people, companions</h1><p class="muted" style="margin:4px 0 8px">grade 8 · old JLPT 1 · 15 strokes · 4 words</p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-はい">はい</a></dd><dt>Kun'yomi</dt><dd>-ばら、やから、やかい、ともがら</dd></dl></div></div>
+<div class="hero"><div class="big">輩</div><div><h1 style="margin:0">comrade, fellow, people, companions</h1><p class="muted" style="margin:4px 0 8px">grade 8 · old JLPT 1 · 15 strokes · 4 words</p><p class="lv3" style="margin:0 0 10px"><span class="lvlpill">Kanji level: Intermediate</span></p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-はい">はい</a></dd><dt>Kun'yomi</dt><dd>-ばら、やから、やかい、ともがら</dd></dl></div></div>
+<div class="legend"><button class="lv1" data-lv="1" title="the ~250 most basic kanji (old JLPT 4–3)"><i></i>Beginner</button><button class="lv2" data-lv="2" title="taught in Japanese elementary school"><i></i>Elementary</button><button class="lv3" data-lv="3" title="secondary-school jōyō kanji in common use"><i></i>Intermediate</button><button class="lv4" data-lv="4" title="the remaining jōyō kanji"><i></i>Advanced</button><button class="lv5" data-lv="5" title="uses a kanji outside the jōyō list"><i></i>Rare</button><span class="muted" style="font-size:12px">Word level = its hardest kanji. Click to hide/show a level.</span></div>
 <section class="on" id="on-はい"><h2>輩 〔はい〕</h2>
 <h3>輩〇 — 輩 first (1)</h3><ul class='words'>
-<li><div class="w"><span class="self">輩</span><a href="51fa.html">出</a></div><div class="r"><b>はい</b>しゅつ</div><div class="g">producing (people) in great numbers; appearing one after the other</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">輩</span><a href="51fa.html">出</a></div><div class="r"><b>はい</b>しゅつ</div><div class="g">producing (people) in great numbers; appearing one after the other</div></li>
 </ul>
 <h3>〇輩 — 輩 second (3)</h3><ul class='words'>
-<li><div class="w"><a href="5f8c.html">後</a><span class="self">輩</span></div><div class="r">こう<b>はい</b></div><div class="g">junior (at work, school, etc.); younger people; younger student</div></li>
-<li><div class="w"><a href="5148.html">先</a><span class="self">輩</span></div><div class="r">せん<b>ぱい</b></div><div class="g">senior (at work or school); superior; elder; older graduate</div></li>
-<li><div class="w"><a href="5e74.html">年</a><span class="self">輩</span></div><div class="r">ねん<b>ぱい</b></div><div class="g">(approximate) age; years; elderly; old</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><a href="5f8c.html">後</a><span class="self">輩</span></div><div class="r">こう<b>はい</b></div><div class="g">junior (at work, school, etc.); younger people; younger student</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><a href="5148.html">先</a><span class="self">輩</span></div><div class="r">せん<b>ぱい</b></div><div class="g">senior (at work or school); superior; elder; older graduate</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><a href="5e74.html">年</a><span class="self">輩</span></div><div class="r">ねん<b>ぱい</b></div><div class="g">(approximate) age; years; elderly; old</div></li>
 </ul>
 </section>
+<script>
+document.querySelectorAll('.legend button').forEach(b=>b.addEventListener('click',()=>{
+ b.classList.toggle('off');
+ const off=[...document.querySelectorAll('.legend button.off')].map(x=>x.dataset.lv);
+ document.querySelectorAll('ul.words li').forEach(li=>li.classList.toggle('hidden',off.includes(li.dataset.lv)));
+}));
+</script>
 <footer class="muted" style="margin-top:48px;font-size:12px">
 Data: <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> &amp;
 <a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project">KANJIDIC2</a>

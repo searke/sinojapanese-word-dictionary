@@ -5,17 +5,25 @@
 <body><main>
 <header class="site"><a href="../index.html">漢語 · Sino-Japanese explorer</a>
 <span class="muted">音読み index</span></header>
-<div class="hero"><div class="big">倍</div><div><h1 style="margin:0">double, twice, times, fold</h1><p class="muted" style="margin:4px 0 8px">grade 3 · old JLPT 2 · 10 strokes · 4 words</p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-ばい">ばい</a></dd></dl></div></div>
+<div class="hero"><div class="big">倍</div><div><h1 style="margin:0">double, twice, times, fold</h1><p class="muted" style="margin:4px 0 8px">grade 3 · old JLPT 2 · 10 strokes · 4 words</p><p class="lv2" style="margin:0 0 10px"><span class="lvlpill">Kanji level: Elementary</span></p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-ばい">ばい</a></dd></dl></div></div>
+<div class="legend"><button class="lv1" data-lv="1" title="the ~250 most basic kanji (old JLPT 4–3)"><i></i>Beginner</button><button class="lv2" data-lv="2" title="taught in Japanese elementary school"><i></i>Elementary</button><button class="lv3" data-lv="3" title="secondary-school jōyō kanji in common use"><i></i>Intermediate</button><button class="lv4" data-lv="4" title="the remaining jōyō kanji"><i></i>Advanced</button><button class="lv5" data-lv="5" title="uses a kanji outside the jōyō list"><i></i>Rare</button><span class="muted" style="font-size:12px">Word level = its hardest kanji. Click to hide/show a level.</span></div>
 <section class="on" id="on-ばい"><h2>倍 〔ばい〕</h2>
 <h3>倍〇 — 倍 first (3)</h3><ul class='words'>
-<li><div class="w"><span class="self">倍</span><a href="52a0.html">加</a></div><div class="r"><b>ばい</b>か</div><div class="g">doubling; marked increase; multiplying; redoubling</div></li>
-<li><div class="w"><span class="self">倍</span><a href="5897.html">増</a></div><div class="r"><b>ばい</b>ぞう</div><div class="g">doubling; double</div></li>
-<li><div class="w"><span class="self">倍</span><a href="7387.html">率</a></div><div class="r"><b>ばい</b>りつ</div><div class="g">magnification; leverage; amplification; scaling factor</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">倍</span><a href="52a0.html">加</a></div><div class="r"><b>ばい</b>か</div><div class="g">doubling; marked increase; multiplying; redoubling</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">倍</span><a href="5897.html">増</a></div><div class="r"><b>ばい</b>ぞう</div><div class="g">doubling; double</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">倍</span><a href="7387.html">率</a></div><div class="r"><b>ばい</b>りつ</div><div class="g">magnification; leverage; amplification; scaling factor</div></li>
 </ul>
 <h3>〇倍 — 倍 second (1)</h3><ul class='words'>
-<li><div class="w"><a href="4e00.html">一</a><span class="self">倍</span></div><div class="r">いち<b>ばい</b></div><div class="g">multiplying by one; original amount; (even) more; double</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><a href="4e00.html">一</a><span class="self">倍</span></div><div class="r">いち<b>ばい</b></div><div class="g">multiplying by one; original amount; (even) more; double</div></li>
 </ul>
 </section>
+<script>
+document.querySelectorAll('.legend button').forEach(b=>b.addEventListener('click',()=>{
+ b.classList.toggle('off');
+ const off=[...document.querySelectorAll('.legend button.off')].map(x=>x.dataset.lv);
+ document.querySelectorAll('ul.words li').forEach(li=>li.classList.toggle('hidden',off.includes(li.dataset.lv)));
+}));
+</script>
 <footer class="muted" style="margin-top:48px;font-size:12px">
 Data: <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> &amp;
 <a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project">KANJIDIC2</a>

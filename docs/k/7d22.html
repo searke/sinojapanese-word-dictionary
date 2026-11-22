@@ -5,19 +5,27 @@
 <body><main>
 <header class="site"><a href="../index.html">漢語 · Sino-Japanese explorer</a>
 <span class="muted">音読み index</span></header>
-<div class="hero"><div class="big">索</div><div><h1 style="margin:0">cord, rope, searching, inquiring</h1><p class="muted" style="margin:4px 0 8px">grade 8 · old JLPT 1 · 10 strokes · 6 words</p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-さく">さく</a></dd></dl></div></div>
+<div class="hero"><div class="big">索</div><div><h1 style="margin:0">cord, rope, searching, inquiring</h1><p class="muted" style="margin:4px 0 8px">grade 8 · old JLPT 1 · 10 strokes · 6 words</p><p class="lv3" style="margin:0 0 10px"><span class="lvlpill">Kanji level: Intermediate</span></p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-さく">さく</a></dd></dl></div></div>
+<div class="legend"><button class="lv1" data-lv="1" title="the ~250 most basic kanji (old JLPT 4–3)"><i></i>Beginner</button><button class="lv2" data-lv="2" title="taught in Japanese elementary school"><i></i>Elementary</button><button class="lv3" data-lv="3" title="secondary-school jōyō kanji in common use"><i></i>Intermediate</button><button class="lv4" data-lv="4" title="the remaining jōyō kanji"><i></i>Advanced</button><button class="lv5" data-lv="5" title="uses a kanji outside the jōyō list"><i></i>Rare</button><span class="muted" style="font-size:12px">Word level = its hardest kanji. Click to hide/show a level.</span></div>
 <section class="on" id="on-さく"><h2>索 〔さく〕</h2>
 <h3>索〇 — 索 first (1)</h3><ul class='words'>
-<li><div class="w"><span class="self">索</span><a href="5f15.html">引</a></div><div class="r"><b>さく</b>いん</div><div class="g">index (in a book)</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">索</span><a href="5f15.html">引</a></div><div class="r"><b>さく</b>いん</div><div class="g">index (in a book)</div></li>
 </ul>
 <h3>〇索 — 索 second (5)</h3><ul class='words'>
-<li><div class="w"><a href="691c.html">検</a><span class="self">索</span></div><div class="r">けん<b>さく</b></div><div class="g">looking up (e.g. a word in a dictionary); search (e.g. on the Internet); retrieval (of information); reference</div></li>
-<li><div class="w"><a href="601d.html">思</a><span class="self">索</span></div><div class="r">し<b>さく</b></div><div class="g">speculation; thinking; meditation</div></li>
-<li><div class="w"><a href="635c.html">捜</a><span class="self">索</span></div><div class="r">そう<b>さく</b></div><div class="g">search (esp. for someone or something missing); manhunt; legally authorized search of a person, building, etc.</div></li>
-<li><div class="w"><a href="63a2.html">探</a><span class="self">索</span></div><div class="r">たん<b>さく</b></div><div class="g">search; lookup; hunt; (item of) research</div></li>
-<li><div class="w"><a href="6a21.html">模</a><span class="self">索</span></div><div class="r">も<b>さく</b></div><div class="g">groping (for); fumbling around (for); searching (for an answer, solution, etc.); trying to find</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><a href="691c.html">検</a><span class="self">索</span></div><div class="r">けん<b>さく</b></div><div class="g">looking up (e.g. a word in a dictionary); search (e.g. on the Internet); retrieval (of information); reference</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><a href="601d.html">思</a><span class="self">索</span></div><div class="r">し<b>さく</b></div><div class="g">speculation; thinking; meditation</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><a href="635c.html">捜</a><span class="self">索</span></div><div class="r">そう<b>さく</b></div><div class="g">search (esp. for someone or something missing); manhunt; legally authorized search of a person, building, etc.</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><a href="63a2.html">探</a><span class="self">索</span></div><div class="r">たん<b>さく</b></div><div class="g">search; lookup; hunt; (item of) research</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><a href="6a21.html">模</a><span class="self">索</span></div><div class="r">も<b>さく</b></div><div class="g">groping (for); fumbling around (for); searching (for an answer, solution, etc.); trying to find</div></li>
 </ul>
 </section>
+<script>
+document.querySelectorAll('.legend button').forEach(b=>b.addEventListener('click',()=>{
+ b.classList.toggle('off');
+ const off=[...document.querySelectorAll('.legend button.off')].map(x=>x.dataset.lv);
+ document.querySelectorAll('ul.words li').forEach(li=>li.classList.toggle('hidden',off.includes(li.dataset.lv)));
+}));
+</script>
 <footer class="muted" style="margin-top:48px;font-size:12px">
 Data: <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> &amp;
 <a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project">KANJIDIC2</a>

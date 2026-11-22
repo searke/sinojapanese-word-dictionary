@@ -5,20 +5,28 @@
 <body><main>
 <header class="site"><a href="../index.html">漢語 · Sino-Japanese explorer</a>
 <span class="muted">音読み index</span></header>
-<div class="hero"><div class="big">承</div><div><h1 style="margin:0">acquiesce, hear, listen to, be informed, receive</h1><p class="muted" style="margin:4px 0 8px">grade 6 · old JLPT 2 · 8 strokes · 7 words</p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-しょう">しょう</a></dd><dt>Other on'yomi</dt><dd>じょう</dd><dt>Kun'yomi</dt><dd>うけたまわ.る、う.ける</dd></dl></div></div>
+<div class="hero"><div class="big">承</div><div><h1 style="margin:0">acquiesce, hear, listen to, be informed, receive</h1><p class="muted" style="margin:4px 0 8px">grade 6 · old JLPT 2 · 8 strokes · 7 words</p><p class="lv2" style="margin:0 0 10px"><span class="lvlpill">Kanji level: Elementary</span></p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-しょう">しょう</a></dd><dt>Other on'yomi</dt><dd>じょう</dd><dt>Kun'yomi</dt><dd>うけたまわ.る、う.ける</dd></dl></div></div>
+<div class="legend"><button class="lv1" data-lv="1" title="the ~250 most basic kanji (old JLPT 4–3)"><i></i>Beginner</button><button class="lv2" data-lv="2" title="taught in Japanese elementary school"><i></i>Elementary</button><button class="lv3" data-lv="3" title="secondary-school jōyō kanji in common use"><i></i>Intermediate</button><button class="lv4" data-lv="4" title="the remaining jōyō kanji"><i></i>Advanced</button><button class="lv5" data-lv="5" title="uses a kanji outside the jōyō list"><i></i>Rare</button><span class="muted" style="font-size:12px">Word level = its hardest kanji. Click to hide/show a level.</span></div>
 <section class="on" id="on-しょう"><h2>承 〔しょう〕</h2>
 <h3>承〇 — 承 first (4)</h3><ul class='words'>
-<li><div class="w"><span class="self">承</span><a href="8afe.html">諾</a></div><div class="r"><b>しょう</b>だく</div><div class="g">consent; approval; acceptance; agreement</div></li>
-<li><div class="w"><span class="self">承</span><a href="77e5.html">知</a></div><div class="r"><b>しょう</b>ち</div><div class="g">knowledge; awareness; acceptance; consent</div></li>
-<li><div class="w"><span class="self">承</span><a href="8a8d.html">認</a></div><div class="r"><b>しょう</b>にん</div><div class="g">recognition; acknowledgement; acknowledgment; approval</div></li>
-<li><div class="w"><span class="self">承</span><a href="670d.html">服</a></div><div class="r"><b>しょう</b>ふく</div><div class="g">accepting; consenting; agreeing; submission</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">承</span><a href="8afe.html">諾</a></div><div class="r"><b>しょう</b>だく</div><div class="g">consent; approval; acceptance; agreement</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">承</span><a href="77e5.html">知</a></div><div class="r"><b>しょう</b>ち</div><div class="g">knowledge; awareness; acceptance; consent</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">承</span><a href="8a8d.html">認</a></div><div class="r"><b>しょう</b>にん</div><div class="g">recognition; acknowledgement; acknowledgment; approval</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">承</span><a href="670d.html">服</a></div><div class="r"><b>しょう</b>ふく</div><div class="g">accepting; consenting; agreeing; submission</div></li>
 </ul>
 <h3>〇承 — 承 second (3)</h3><ul class='words'>
-<li><div class="w"><a href="7d99.html">継</a><span class="self">承</span></div><div class="r">けい<b>しょう</b></div><div class="g">inheritance; succession; accession; share-alike</div></li>
-<li><div class="w"><a href="4f1d.html">伝</a><span class="self">承</span></div><div class="r">でん<b>しょう</b></div><div class="g">handing down (information); legend; tradition; folklore</div></li>
-<li><div class="w"><a href="4e86.html">了</a><span class="self">承</span></div><div class="r">りょう<b>しょう</b></div><div class="g">acknowledgement; acknowledgment; understanding; approval</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><a href="7d99.html">継</a><span class="self">承</span></div><div class="r">けい<b>しょう</b></div><div class="g">inheritance; succession; accession; share-alike</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><a href="4f1d.html">伝</a><span class="self">承</span></div><div class="r">でん<b>しょう</b></div><div class="g">handing down (information); legend; tradition; folklore</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><a href="4e86.html">了</a><span class="self">承</span></div><div class="r">りょう<b>しょう</b></div><div class="g">acknowledgement; acknowledgment; understanding; approval</div></li>
 </ul>
 </section>
+<script>
+document.querySelectorAll('.legend button').forEach(b=>b.addEventListener('click',()=>{
+ b.classList.toggle('off');
+ const off=[...document.querySelectorAll('.legend button.off')].map(x=>x.dataset.lv);
+ document.querySelectorAll('ul.words li').forEach(li=>li.classList.toggle('hidden',off.includes(li.dataset.lv)));
+}));
+</script>
 <footer class="muted" style="margin-top:48px;font-size:12px">
 Data: <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> &amp;
 <a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project">KANJIDIC2</a>

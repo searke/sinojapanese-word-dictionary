@@ -5,18 +5,26 @@
 <body><main>
 <header class="site"><a href="../index.html">漢語 · Sino-Japanese explorer</a>
 <span class="muted">音読み index</span></header>
-<div class="hero"><div class="big">旋</div><div><h1 style="margin:0">rotation, go around</h1><p class="muted" style="margin:4px 0 8px">grade 8 · old JLPT 1 · 11 strokes · 5 words</p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-せん">せん</a></dd><dt>Kun'yomi</dt><dd>め.ぐる、いばり</dd></dl></div></div>
+<div class="hero"><div class="big">旋</div><div><h1 style="margin:0">rotation, go around</h1><p class="muted" style="margin:4px 0 8px">grade 8 · old JLPT 1 · 11 strokes · 5 words</p><p class="lv4" style="margin:0 0 10px"><span class="lvlpill">Kanji level: Advanced</span></p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-せん">せん</a></dd><dt>Kun'yomi</dt><dd>め.ぐる、いばり</dd></dl></div></div>
+<div class="legend"><button class="lv1" data-lv="1" title="the ~250 most basic kanji (old JLPT 4–3)"><i></i>Beginner</button><button class="lv2" data-lv="2" title="taught in Japanese elementary school"><i></i>Elementary</button><button class="lv3" data-lv="3" title="secondary-school jōyō kanji in common use"><i></i>Intermediate</button><button class="lv4" data-lv="4" title="the remaining jōyō kanji"><i></i>Advanced</button><button class="lv5" data-lv="5" title="uses a kanji outside the jōyō list"><i></i>Rare</button><span class="muted" style="font-size:12px">Word level = its hardest kanji. Click to hide/show a level.</span></div>
 <section class="on" id="on-せん"><h2>旋 〔せん〕</h2>
 <h3>旋〇 — 旋 first (3)</h3><ul class='words'>
-<li><div class="w"><span class="self">旋</span><a href="56de.html">回</a></div><div class="r"><b>せん</b>かい</div><div class="g">revolution; rotation; turning; circling</div></li>
-<li><div class="w"><span class="self">旋</span><a href="98a8.html">風</a></div><div class="r"><b>せん</b>ぷう</div><div class="g">whirlwind; sensation; commotion; hullabaloo</div></li>
-<li><div class="w"><span class="self">旋</span><a href="5f8b.html">律</a></div><div class="r"><b>せん</b>りつ</div><div class="g">melody; tune</div></li>
+<li class="lv4" data-lv="4"><span class="badge">Advanced</span><div class="w"><span class="self">旋</span><a href="56de.html">回</a></div><div class="r"><b>せん</b>かい</div><div class="g">revolution; rotation; turning; circling</div></li>
+<li class="lv4" data-lv="4"><span class="badge">Advanced</span><div class="w"><span class="self">旋</span><a href="98a8.html">風</a></div><div class="r"><b>せん</b>ぷう</div><div class="g">whirlwind; sensation; commotion; hullabaloo</div></li>
+<li class="lv4" data-lv="4"><span class="badge">Advanced</span><div class="w"><span class="self">旋</span><a href="5f8b.html">律</a></div><div class="r"><b>せん</b>りつ</div><div class="g">melody; tune</div></li>
 </ul>
 <h3>〇旋 — 旋 second (2)</h3><ul class='words'>
-<li><div class="w"><a href="65a1.html">斡</a><span class="self">旋</span></div><div class="r">あっ<b>せん</b></div><div class="g">good offices; kind offices; services; influence</div></li>
-<li><div class="w"><a href="87ba.html">螺</a><span class="self">旋</span></div><div class="r">ら<b>せん</b></div><div class="g">spiral; helix; screw</div></li>
+<li class="lv5" data-lv="5"><span class="badge">Rare</span><div class="w"><a href="65a1.html">斡</a><span class="self">旋</span></div><div class="r">あっ<b>せん</b></div><div class="g">good offices; kind offices; services; influence</div></li>
+<li class="lv5" data-lv="5"><span class="badge">Rare</span><div class="w"><a href="87ba.html">螺</a><span class="self">旋</span></div><div class="r">ら<b>せん</b></div><div class="g">spiral; helix; screw</div></li>
 </ul>
 </section>
+<script>
+document.querySelectorAll('.legend button').forEach(b=>b.addEventListener('click',()=>{
+ b.classList.toggle('off');
+ const off=[...document.querySelectorAll('.legend button.off')].map(x=>x.dataset.lv);
+ document.querySelectorAll('ul.words li').forEach(li=>li.classList.toggle('hidden',off.includes(li.dataset.lv)));
+}));
+</script>
 <footer class="muted" style="margin-top:48px;font-size:12px">
 Data: <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> &amp;
 <a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project">KANJIDIC2</a>

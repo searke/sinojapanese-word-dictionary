@@ -5,16 +5,24 @@
 <body><main>
 <header class="site"><a href="../index.html">漢語 · Sino-Japanese explorer</a>
 <span class="muted">音読み index</span></header>
-<div class="hero"><div class="big">偏</div><div><h1 style="margin:0">partial, side, left-side radical, inclining, biased</h1><p class="muted" style="margin:4px 0 8px">grade 8 · old JLPT 1 · 11 strokes · 5 words</p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-へん">へん</a></dd><dt>Kun'yomi</dt><dd>かたよ.る</dd></dl></div></div>
+<div class="hero"><div class="big">偏</div><div><h1 style="margin:0">partial, side, left-side radical, inclining, biased</h1><p class="muted" style="margin:4px 0 8px">grade 8 · old JLPT 1 · 11 strokes · 5 words</p><p class="lv3" style="margin:0 0 10px"><span class="lvlpill">Kanji level: Intermediate</span></p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-へん">へん</a></dd><dt>Kun'yomi</dt><dd>かたよ.る</dd></dl></div></div>
+<div class="legend"><button class="lv1" data-lv="1" title="the ~250 most basic kanji (old JLPT 4–3)"><i></i>Beginner</button><button class="lv2" data-lv="2" title="taught in Japanese elementary school"><i></i>Elementary</button><button class="lv3" data-lv="3" title="secondary-school jōyō kanji in common use"><i></i>Intermediate</button><button class="lv4" data-lv="4" title="the remaining jōyō kanji"><i></i>Advanced</button><button class="lv5" data-lv="5" title="uses a kanji outside the jōyō list"><i></i>Rare</button><span class="muted" style="font-size:12px">Word level = its hardest kanji. Click to hide/show a level.</span></div>
 <section class="on" id="on-へん"><h2>偏 〔へん〕</h2>
 <h3>偏〇 — 偏 first (5)</h3><ul class='words'>
-<li><div class="w"><span class="self">偏</span><a href="72ed.html">狭</a></div><div class="r"><b>へん</b>きょう</div><div class="g">narrow-mindedness; intolerance; illiberality; narrowness</div></li>
-<li><div class="w"><span class="self">偏</span><a href="898b.html">見</a></div><div class="r"><b>へん</b>けん</div><div class="g">prejudice; bias; distorted view</div></li>
-<li><div class="w"><span class="self">偏</span><a href="5411.html">向</a></div><div class="r"><b>へん</b>こう</div><div class="g">propensity; tendency; inclination; deflection</div></li>
-<li><div class="w"><span class="self">偏</span><a href="98df.html">食</a></div><div class="r"><b>へん</b>しょく</div><div class="g">unbalanced diet</div></li>
-<li><div class="w"><span class="self">偏</span><a href="91cd.html">重</a></div><div class="r"><b>へん</b>ちょう</div><div class="g">attaching too much importance to; placing disproportionate emphasis on; making too much of</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">偏</span><a href="72ed.html">狭</a></div><div class="r"><b>へん</b>きょう</div><div class="g">narrow-mindedness; intolerance; illiberality; narrowness</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">偏</span><a href="898b.html">見</a></div><div class="r"><b>へん</b>けん</div><div class="g">prejudice; bias; distorted view</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">偏</span><a href="5411.html">向</a></div><div class="r"><b>へん</b>こう</div><div class="g">propensity; tendency; inclination; deflection</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">偏</span><a href="98df.html">食</a></div><div class="r"><b>へん</b>しょく</div><div class="g">unbalanced diet</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">偏</span><a href="91cd.html">重</a></div><div class="r"><b>へん</b>ちょう</div><div class="g">attaching too much importance to; placing disproportionate emphasis on; making too much of</div></li>
 </ul>
 </section>
+<script>
+document.querySelectorAll('.legend button').forEach(b=>b.addEventListener('click',()=>{
+ b.classList.toggle('off');
+ const off=[...document.querySelectorAll('.legend button.off')].map(x=>x.dataset.lv);
+ document.querySelectorAll('ul.words li').forEach(li=>li.classList.toggle('hidden',off.includes(li.dataset.lv)));
+}));
+</script>
 <footer class="muted" style="margin-top:48px;font-size:12px">
 Data: <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> &amp;
 <a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project">KANJIDIC2</a>

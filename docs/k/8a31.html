@@ -5,18 +5,26 @@
 <body><main>
 <header class="site"><a href="../index.html">漢語 · Sino-Japanese explorer</a>
 <span class="muted">音読み index</span></header>
-<div class="hero"><div class="big">許</div><div><h1 style="margin:0">permit, approve</h1><p class="muted" style="margin:4px 0 8px">grade 5 · old JLPT 2 · 11 strokes · 5 words</p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-きょ">きょ</a></dd><dt>Kun'yomi</dt><dd>ゆる.す、もと</dd></dl></div></div>
+<div class="hero"><div class="big">許</div><div><h1 style="margin:0">permit, approve</h1><p class="muted" style="margin:4px 0 8px">grade 5 · old JLPT 2 · 11 strokes · 5 words</p><p class="lv2" style="margin:0 0 10px"><span class="lvlpill">Kanji level: Elementary</span></p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-きょ">きょ</a></dd><dt>Kun'yomi</dt><dd>ゆる.す、もと</dd></dl></div></div>
+<div class="legend"><button class="lv1" data-lv="1" title="the ~250 most basic kanji (old JLPT 4–3)"><i></i>Beginner</button><button class="lv2" data-lv="2" title="taught in Japanese elementary school"><i></i>Elementary</button><button class="lv3" data-lv="3" title="secondary-school jōyō kanji in common use"><i></i>Intermediate</button><button class="lv4" data-lv="4" title="the remaining jōyō kanji"><i></i>Advanced</button><button class="lv5" data-lv="5" title="uses a kanji outside the jōyō list"><i></i>Rare</button><span class="muted" style="font-size:12px">Word level = its hardest kanji. Click to hide/show a level.</span></div>
 <section class="on" id="on-きょ"><h2>許 〔きょ〕</h2>
 <h3>許〇 — 許 first (3)</h3><ul class='words'>
-<li><div class="w"><span class="self">許</span><a href="53ef.html">可</a></div><div class="r"><b>きょ</b>か</div><div class="g">permission; approval; authorization; license</div></li>
-<li><div class="w"><span class="self">許</span><a href="8afe.html">諾</a></div><div class="r"><b>きょ</b>だく</div><div class="g">consent; assent; approval; permission</div></li>
-<li><div class="w"><span class="self">許</span><a href="5bb9.html">容</a></div><div class="r"><b>きょ</b>よう</div><div class="g">permission; allowance; acceptance; tolerance</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">許</span><a href="53ef.html">可</a></div><div class="r"><b>きょ</b>か</div><div class="g">permission; approval; authorization; license</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">許</span><a href="8afe.html">諾</a></div><div class="r"><b>きょ</b>だく</div><div class="g">consent; assent; approval; permission</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">許</span><a href="5bb9.html">容</a></div><div class="r"><b>きょ</b>よう</div><div class="g">permission; allowance; acceptance; tolerance</div></li>
 </ul>
 <h3>〇許 — 許 second (2)</h3><ul class='words'>
-<li><div class="w"><a href="7279.html">特</a><span class="self">許</span></div><div class="r">とっ<b>きょ</b></div><div class="g">patent; special permission; license; licence</div></li>
-<li><div class="w"><a href="514d.html">免</a><span class="self">許</span></div><div class="r">めん<b>きょ</b></div><div class="g">license; licence; permission; permit</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><a href="7279.html">特</a><span class="self">許</span></div><div class="r">とっ<b>きょ</b></div><div class="g">patent; special permission; license; licence</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><a href="514d.html">免</a><span class="self">許</span></div><div class="r">めん<b>きょ</b></div><div class="g">license; licence; permission; permit</div></li>
 </ul>
 </section>
+<script>
+document.querySelectorAll('.legend button').forEach(b=>b.addEventListener('click',()=>{
+ b.classList.toggle('off');
+ const off=[...document.querySelectorAll('.legend button.off')].map(x=>x.dataset.lv);
+ document.querySelectorAll('ul.words li').forEach(li=>li.classList.toggle('hidden',off.includes(li.dataset.lv)));
+}));
+</script>
 <footer class="muted" style="margin-top:48px;font-size:12px">
 Data: <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> &amp;
 <a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project">KANJIDIC2</a>

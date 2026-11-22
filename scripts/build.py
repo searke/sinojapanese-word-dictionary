@@ -97,7 +97,31 @@ def load_kanji():
                 "strokes": (ch["misc"].get("strokeCounts") or [None])[0],
                 "jlpt": ch["misc"].get("jlptLevel"),
             }
+            info[ch["literal"]]["lvl"] = kanji_level(info[ch["literal"]])
     return info
+
+
+LEVELS = {
+    1: ("Beginner", "the ~250 most basic kanji (old JLPT 4–3)"),
+    2: ("Elementary", "taught in Japanese elementary school"),
+    3: ("Intermediate", "secondary-school jōyō kanji in common use"),
+    4: ("Advanced", "the remaining jōyō kanji"),
+    5: ("Rare", "uses a kanji outside the jōyō list"),
+}
+
+
+def kanji_level(info) -> int:
+    """Rough difficulty of a kanji from school grade, old JLPT and newspaper frequency."""
+    g, j, f = info["grade"], info["jlpt"], info["freq"]
+    if j in (3, 4):
+        return 1
+    if g and g <= 6:
+        return 2
+    if g == 8 and f and f <= 1500:
+        return 3
+    if g == 8:
+        return 4
+    return 5
 
 
 def split_reading(word, reading, kinfo):
@@ -145,6 +169,7 @@ def load_words(kinfo):
                         glosses.append(g["text"])
             seen.add(w)
             words.append({
+                "lvl": max(kinfo[c]["lvl"] for c in w),
                 "w": w, "r": rd, "on": sp[:2], "parts": sp[2:],
                 "common": k["common"], "gloss": glosses[:4],
             })
@@ -201,6 +226,18 @@ nav.rows a{padding:2px 10px;border:1px solid var(--line);border-radius:99px}
 input#q{width:100%;font-size:18px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);
 background:var(--card);color:var(--fg)}
 .hidden{display:none!important}
+:root{--l1:#2e9e5b;--l2:#2a8fb0;--l3:#d39b1c;--l4:#e0612f;--l5:#8e4fc2}
+ul.words li{border-left:5px solid var(--lc)}
+.lv1{--lc:var(--l1)}.lv2{--lc:var(--l2)}.lv3{--lc:var(--l3)}.lv4{--lc:var(--l4)}.lv5{--lc:var(--l5)}
+.badge{float:right;font-size:11px;font-weight:600;color:#fff;background:var(--lc);
+border-radius:99px;padding:1px 8px;margin-top:6px}
+.kl a{border-bottom:4px solid var(--lc)}
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 0;align-items:center}
+.legend button,.legend span[data-lv]{font:inherit;font-size:13px;cursor:pointer;border:2px solid var(--lc);
+background:var(--card);color:var(--fg);border-radius:99px;padding:2px 10px}
+.legend button.off{opacity:.35;text-decoration:line-through}
+.legend [data-lv] i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--lc);margin-right:6px}
+.lvlpill{display:inline-block;color:#fff;background:var(--lc);border-radius:99px;padding:0 10px;font-size:13px;font-weight:600}
 """
 
 
@@ -246,8 +283,29 @@ def word_li(word, key, pages, depth_prefix=""):
     if word["w"][0] == key and word["w"][1] == key:
         rd = f"<b>{esc(p1)}{esc(p2)}</b>"
     gloss = "; ".join(word["gloss"])
-    return (f'<li><div class="w">{"".join(chars)}</div>'
+    lv = word["lvl"]
+    return (f'<li class="lv{lv}" data-lv="{lv}"><span class="badge">{LEVELS[lv][0]}</span>'
+            f'<div class="w">{"".join(chars)}</div>'
             f'<div class="r">{rd}</div><div class="g">{esc(gloss)}</div></li>')
+
+
+def legend(toggle):
+    tag = "button" if toggle else "span"
+    items = "".join(
+        f'<{tag} class="lv{n}" data-lv="{n}" title="{esc(d)}"><i></i>{esc(name)}</{tag}>'
+        for n, (name, d) in LEVELS.items())
+    hint = ("Word level = its hardest kanji. Click to hide/show a level."
+            if toggle else "Tile colour = kanji difficulty.")
+    return f'<div class="legend">{items}<span class="muted" style="font-size:12px">{hint}</span></div>'
+
+
+FILTER_JS = """<script>
+document.querySelectorAll('.legend button').forEach(b=>b.addEventListener('click',()=>{
+ b.classList.toggle('off');
+ const off=[...document.querySelectorAll('.legend button.off')].map(x=>x.dataset.lv);
+ document.querySelectorAll('ul.words li').forEach(li=>li.classList.toggle('hidden',off.includes(li.dataset.lv)));
+}));
+</script>"""
 
 
 def build():
@@ -288,10 +346,14 @@ def build():
         if info["strokes"]:
             bits.append(f"{info['strokes']} strokes")
         bits.append(f"{total} words")
+        klv = info["lvl"]
         body = [f'<div class="hero"><div class="big">{esc(c)}</div><div>'
                 f'<h1 style="margin:0">{esc(", ".join(info["meanings"][:5]))}</h1>'
                 f'<p class="muted" style="margin:4px 0 8px">{esc(" · ".join(bits))}</p>'
-                f'<dl class="meta">{"".join(meta)}</dl></div></div>']
+                f'<p class="lv{klv}" style="margin:0 0 10px"><span class="lvlpill">'
+                f'Kanji level: {LEVELS[klv][0]}</span></p>'
+                f'<dl class="meta">{"".join(meta)}</dl></div></div>',
+                legend(True)]
         for o in order:
             g = groups[o]
             body.append(f'<section class="on" id="on-{esc(o)}"><h2>{esc(c)} 〔{esc(o)}〕</h2>')
@@ -303,6 +365,7 @@ def build():
                 body += [word_li(w, c, pages) for w in lst]
                 body.append("</ul>")
             body.append("</section>")
+        body.append(FILTER_JS)
         (OUT / "k" / kpath(c)).write_text(
             page(f"{c} — Sino-Japanese words", "\n".join(body), 1), "utf-8")
 
@@ -322,6 +385,7 @@ def build():
         "Every kanji inside a word is a link, so you can keep wandering.</p>",
         '<input id="q" placeholder="Filter: type a reading (かん / カン) or a kanji…" autocomplete="off">',
         f'<nav class="rows">{nav}</nav>',
+        legend(False),
     ]
     for h, _ in ROWS:
         if h not in rows:
@@ -330,7 +394,7 @@ def build():
         for o in rows[h]:
             ks = sorted(by_on[o], key=lambda t: (-t[1], t[0]))
             links = "".join(
-                f'<a href="k/{kpath(c)}" data-k="{esc(c)}" title="{esc(", ".join(kinfo[c]["meanings"][:3]))}">'
+                f'<a class="lv{kinfo[c]["lvl"]}" href="k/{kpath(c)}" data-k="{esc(c)}" title="{esc(", ".join(kinfo[c]["meanings"][:3]))}">'
                 f'<span>{esc(c)}</span><small>{n}</small></a>' for c, n in ks)
             body.append(f'<div class="reading" data-on="{esc(o)}"><div class="rk">{esc(o)}</div>'
                         f'<div class="kl">{links}</div></div>')

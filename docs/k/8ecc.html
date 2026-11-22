@@ -5,16 +5,24 @@
 <body><main>
 <header class="site"><a href="../index.html">漢語 · Sino-Japanese explorer</a>
 <span class="muted">音読み index</span></header>
-<div class="hero"><div class="big">軌</div><div><h1 style="margin:0">rut, wheel, track, model, way of doing</h1><p class="muted" style="margin:4px 0 8px">grade 8 · old JLPT 1 · 9 strokes · 3 words</p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-き">き</a></dd></dl></div></div>
+<div class="hero"><div class="big">軌</div><div><h1 style="margin:0">rut, wheel, track, model, way of doing</h1><p class="muted" style="margin:4px 0 8px">grade 8 · old JLPT 1 · 9 strokes · 3 words</p><p class="lv3" style="margin:0 0 10px"><span class="lvlpill">Kanji level: Intermediate</span></p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-き">き</a></dd></dl></div></div>
+<div class="legend"><button class="lv1" data-lv="1" title="the ~250 most basic kanji (old JLPT 4–3)"><i></i>Beginner</button><button class="lv2" data-lv="2" title="taught in Japanese elementary school"><i></i>Elementary</button><button class="lv3" data-lv="3" title="secondary-school jōyō kanji in common use"><i></i>Intermediate</button><button class="lv4" data-lv="4" title="the remaining jōyō kanji"><i></i>Advanced</button><button class="lv5" data-lv="5" title="uses a kanji outside the jōyō list"><i></i>Rare</button><span class="muted" style="font-size:12px">Word level = its hardest kanji. Click to hide/show a level.</span></div>
 <section class="on" id="on-き"><h2>軌 〔き〕</h2>
 <h3>軌〇 — 軌 first (2)</h3><ul class='words'>
-<li><div class="w"><span class="self">軌</span><a href="8de1.html">跡</a></div><div class="r"><b>き</b>せき</div><div class="g">tire track; traces of a person or thing; path one has taken; locus</div></li>
-<li><div class="w"><span class="self">軌</span><a href="9053.html">道</a></div><div class="r"><b>き</b>どう</div><div class="g">orbit; trajectory; (railroad) track; (right) track</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">軌</span><a href="8de1.html">跡</a></div><div class="r"><b>き</b>せき</div><div class="g">tire track; traces of a person or thing; path one has taken; locus</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">軌</span><a href="9053.html">道</a></div><div class="r"><b>き</b>どう</div><div class="g">orbit; trajectory; (railroad) track; (right) track</div></li>
 </ul>
 <h3>〇軌 — 軌 second (1)</h3><ul class='words'>
-<li><div class="w"><a href="5e38.html">常</a><span class="self">軌</span></div><div class="r">じょう<b>き</b></div><div class="g">normal course (of action); proper course; regular way</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><a href="5e38.html">常</a><span class="self">軌</span></div><div class="r">じょう<b>き</b></div><div class="g">normal course (of action); proper course; regular way</div></li>
 </ul>
 </section>
+<script>
+document.querySelectorAll('.legend button').forEach(b=>b.addEventListener('click',()=>{
+ b.classList.toggle('off');
+ const off=[...document.querySelectorAll('.legend button.off')].map(x=>x.dataset.lv);
+ document.querySelectorAll('ul.words li').forEach(li=>li.classList.toggle('hidden',off.includes(li.dataset.lv)));
+}));
+</script>
 <footer class="muted" style="margin-top:48px;font-size:12px">
 Data: <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> &amp;
 <a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project">KANJIDIC2</a>

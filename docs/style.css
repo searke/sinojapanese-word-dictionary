@@ -47,3 +47,15 @@ nav.rows a{padding:2px 10px;border:1px solid var(--line);border-radius:99px}
 input#q{width:100%;font-size:18px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);
 background:var(--card);color:var(--fg)}
 .hidden{display:none!important}
+:root{--l1:#2e9e5b;--l2:#2a8fb0;--l3:#d39b1c;--l4:#e0612f;--l5:#8e4fc2}
+ul.words li{border-left:5px solid var(--lc)}
+.lv1{--lc:var(--l1)}.lv2{--lc:var(--l2)}.lv3{--lc:var(--l3)}.lv4{--lc:var(--l4)}.lv5{--lc:var(--l5)}
+.badge{float:right;font-size:11px;font-weight:600;color:#fff;background:var(--lc);
+border-radius:99px;padding:1px 8px;margin-top:6px}
+.kl a{border-bottom:4px solid var(--lc)}
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 0;align-items:center}
+.legend button,.legend span[data-lv]{font:inherit;font-size:13px;cursor:pointer;border:2px solid var(--lc);
+background:var(--card);color:var(--fg);border-radius:99px;padding:2px 10px}
+.legend button.off{opacity:.35;text-decoration:line-through}
+.legend [data-lv] i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--lc);margin-right:6px}
+.lvlpill{display:inline-block;color:#fff;background:var(--lc);border-radius:99px;padding:0 10px;font-size:13px;font-weight:600}

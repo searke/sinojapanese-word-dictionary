@@ -5,20 +5,28 @@
 <body><main>
 <header class="site"><a href="../index.html">漢語 · Sino-Japanese explorer</a>
 <span class="muted">音読み index</span></header>
-<div class="hero"><div class="big">織</div><div><h1 style="margin:0">weave, fabric</h1><p class="muted" style="margin:4px 0 8px">grade 5 · old JLPT 1 · 18 strokes · 3 words</p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-しょく">しょく</a><a class="on-tag" href="#on-しき">しき</a></dd><dt>Kun'yomi</dt><dd>お.る、お.り、おり、-おり、-お.り</dd></dl></div></div>
+<div class="hero"><div class="big">織</div><div><h1 style="margin:0">weave, fabric</h1><p class="muted" style="margin:4px 0 8px">grade 5 · old JLPT 1 · 18 strokes · 3 words</p><p class="lv2" style="margin:0 0 10px"><span class="lvlpill">Kanji level: Elementary</span></p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-しょく">しょく</a><a class="on-tag" href="#on-しき">しき</a></dd><dt>Kun'yomi</dt><dd>お.る、お.り、おり、-おり、-お.り</dd></dl></div></div>
+<div class="legend"><button class="lv1" data-lv="1" title="the ~250 most basic kanji (old JLPT 4–3)"><i></i>Beginner</button><button class="lv2" data-lv="2" title="taught in Japanese elementary school"><i></i>Elementary</button><button class="lv3" data-lv="3" title="secondary-school jōyō kanji in common use"><i></i>Intermediate</button><button class="lv4" data-lv="4" title="the remaining jōyō kanji"><i></i>Advanced</button><button class="lv5" data-lv="5" title="uses a kanji outside the jōyō list"><i></i>Rare</button><span class="muted" style="font-size:12px">Word level = its hardest kanji. Click to hide/show a level.</span></div>
 <section class="on" id="on-しょく"><h2>織 〔しょく〕</h2>
 <h3>織〇 — 織 first (1)</h3><ul class='words'>
-<li><div class="w"><span class="self">織</span><a href="6a5f.html">機</a></div><div class="r"><b>しょっ</b>き</div><div class="g">loom; weaving machine</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">織</span><a href="6a5f.html">機</a></div><div class="r"><b>しょっ</b>き</div><div class="g">loom; weaving machine</div></li>
 </ul>
 <h3>〇織 — 織 second (1)</h3><ul class='words'>
-<li><div class="w"><a href="7d21.html">紡</a><span class="self">織</span></div><div class="r">ぼう<b>しょく</b></div><div class="g">spinning and weaving</div></li>
+<li class="lv4" data-lv="4"><span class="badge">Advanced</span><div class="w"><a href="7d21.html">紡</a><span class="self">織</span></div><div class="r">ぼう<b>しょく</b></div><div class="g">spinning and weaving</div></li>
 </ul>
 </section>
 <section class="on" id="on-しき"><h2>織 〔しき〕</h2>
 <h3>〇織 — 織 second (1)</h3><ul class='words'>
-<li><div class="w"><a href="7d44.html">組</a><span class="self">織</span></div><div class="r">そ<b>しき</b></div><div class="g">organization; organisation; formation; structure</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><a href="7d44.html">組</a><span class="self">織</span></div><div class="r">そ<b>しき</b></div><div class="g">organization; organisation; formation; structure</div></li>
 </ul>
 </section>
+<script>
+document.querySelectorAll('.legend button').forEach(b=>b.addEventListener('click',()=>{
+ b.classList.toggle('off');
+ const off=[...document.querySelectorAll('.legend button.off')].map(x=>x.dataset.lv);
+ document.querySelectorAll('ul.words li').forEach(li=>li.classList.toggle('hidden',off.includes(li.dataset.lv)));
+}));
+</script>
 <footer class="muted" style="margin-top:48px;font-size:12px">
 Data: <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> &amp;
 <a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project">KANJIDIC2</a>

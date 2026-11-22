@@ -5,20 +5,28 @@
 <body><main>
 <header class="site"><a href="../index.html">漢語 · Sino-Japanese explorer</a>
 <span class="muted">音読み index</span></header>
-<div class="hero"><div class="big">秘</div><div><h1 style="margin:0">secret, conceal</h1><p class="muted" style="margin:4px 0 8px">grade 6 · old JLPT 1 · 10 strokes · 7 words</p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-ひ">ひ</a></dd><dt>Kun'yomi</dt><dd>ひ.める、ひそ.か、かく.す</dd></dl></div></div>
+<div class="hero"><div class="big">秘</div><div><h1 style="margin:0">secret, conceal</h1><p class="muted" style="margin:4px 0 8px">grade 6 · old JLPT 1 · 10 strokes · 7 words</p><p class="lv2" style="margin:0 0 10px"><span class="lvlpill">Kanji level: Elementary</span></p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-ひ">ひ</a></dd><dt>Kun'yomi</dt><dd>ひ.める、ひそ.か、かく.す</dd></dl></div></div>
+<div class="legend"><button class="lv1" data-lv="1" title="the ~250 most basic kanji (old JLPT 4–3)"><i></i>Beginner</button><button class="lv2" data-lv="2" title="taught in Japanese elementary school"><i></i>Elementary</button><button class="lv3" data-lv="3" title="secondary-school jōyō kanji in common use"><i></i>Intermediate</button><button class="lv4" data-lv="4" title="the remaining jōyō kanji"><i></i>Advanced</button><button class="lv5" data-lv="5" title="uses a kanji outside the jōyō list"><i></i>Rare</button><span class="muted" style="font-size:12px">Word level = its hardest kanji. Click to hide/show a level.</span></div>
 <section class="on" id="on-ひ"><h2>秘 〔ひ〕</h2>
 <h3>秘〇 — 秘 first (4)</h3><ul class='words'>
-<li><div class="w"><span class="self">秘</span><a href="8a23.html">訣</a></div><div class="r"><b>ひ</b>けつ</div><div class="g">secret (method, trick, etc.); key (e.g. to success); mysteries (of an art, trade, etc.); recipe</div></li>
-<li><div class="w"><span class="self">秘</span><a href="66f8.html">書</a></div><div class="r"><b>ひ</b>しょ</div><div class="g">(private) secretary; treasured book; secret book</div></li>
-<li><div class="w"><span class="self">秘</span><a href="5bc6.html">密</a></div><div class="r"><b>ひ</b>みつ</div><div class="g">secret; secrecy; confidentiality; privacy</div></li>
-<li><div class="w"><span class="self">秘</span><a href="8a71.html">話</a></div><div class="r"><b>ひ</b>わ</div><div class="g">secret story; unknown episode</div></li>
+<li class="lv5" data-lv="5"><span class="badge">Rare</span><div class="w"><span class="self">秘</span><a href="8a23.html">訣</a></div><div class="r"><b>ひ</b>けつ</div><div class="g">secret (method, trick, etc.); key (e.g. to success); mysteries (of an art, trade, etc.); recipe</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">秘</span><a href="66f8.html">書</a></div><div class="r"><b>ひ</b>しょ</div><div class="g">(private) secretary; treasured book; secret book</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">秘</span><a href="5bc6.html">密</a></div><div class="r"><b>ひ</b>みつ</div><div class="g">secret; secrecy; confidentiality; privacy</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">秘</span><a href="8a71.html">話</a></div><div class="r"><b>ひ</b>わ</div><div class="g">secret story; unknown episode</div></li>
 </ul>
 <h3>〇秘 — 秘 second (3)</h3><ul class='words'>
-<li><div class="w"><a href="6975.html">極</a><span class="self">秘</span></div><div class="r">ごく<b>ひ</b></div><div class="g">absolute secrecy</div></li>
-<li><div class="w"><a href="795e.html">神</a><span class="self">秘</span></div><div class="r">しん<b>ぴ</b></div><div class="g">mystery; mysteriousness; secret</div></li>
-<li><div class="w"><a href="4fbf.html">便</a><span class="self">秘</span></div><div class="r">べん<b>ぴ</b></div><div class="g">constipation</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><a href="6975.html">極</a><span class="self">秘</span></div><div class="r">ごく<b>ひ</b></div><div class="g">absolute secrecy</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><a href="795e.html">神</a><span class="self">秘</span></div><div class="r">しん<b>ぴ</b></div><div class="g">mystery; mysteriousness; secret</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><a href="4fbf.html">便</a><span class="self">秘</span></div><div class="r">べん<b>ぴ</b></div><div class="g">constipation</div></li>
 </ul>
 </section>
+<script>
+document.querySelectorAll('.legend button').forEach(b=>b.addEventListener('click',()=>{
+ b.classList.toggle('off');
+ const off=[...document.querySelectorAll('.legend button.off')].map(x=>x.dataset.lv);
+ document.querySelectorAll('ul.words li').forEach(li=>li.classList.toggle('hidden',off.includes(li.dataset.lv)));
+}));
+</script>
 <footer class="muted" style="margin-top:48px;font-size:12px">
 Data: <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> &amp;
 <a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project">KANJIDIC2</a>

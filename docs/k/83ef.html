@@ -5,19 +5,27 @@
 <body><main>
 <header class="site"><a href="../index.html">漢語 · Sino-Japanese explorer</a>
 <span class="muted">音読み index</span></header>
-<div class="hero"><div class="big">華</div><div><h1 style="margin:0">splendor, flower, petal, shine, luster</h1><p class="muted" style="margin:4px 0 8px">grade 8 · old JLPT 1 · 10 strokes · 6 words</p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-か">か</a></dd><dt>Other on'yomi</dt><dd>け</dd><dt>Kun'yomi</dt><dd>はな</dd></dl></div></div>
+<div class="hero"><div class="big">華</div><div><h1 style="margin:0">splendor, flower, petal, shine, luster</h1><p class="muted" style="margin:4px 0 8px">grade 8 · old JLPT 1 · 10 strokes · 6 words</p><p class="lv3" style="margin:0 0 10px"><span class="lvlpill">Kanji level: Intermediate</span></p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-か">か</a></dd><dt>Other on'yomi</dt><dd>け</dd><dt>Kun'yomi</dt><dd>はな</dd></dl></div></div>
+<div class="legend"><button class="lv1" data-lv="1" title="the ~250 most basic kanji (old JLPT 4–3)"><i></i>Beginner</button><button class="lv2" data-lv="2" title="taught in Japanese elementary school"><i></i>Elementary</button><button class="lv3" data-lv="3" title="secondary-school jōyō kanji in common use"><i></i>Intermediate</button><button class="lv4" data-lv="4" title="the remaining jōyō kanji"><i></i>Advanced</button><button class="lv5" data-lv="5" title="uses a kanji outside the jōyō list"><i></i>Rare</button><span class="muted" style="font-size:12px">Word level = its hardest kanji. Click to hide/show a level.</span></div>
 <section class="on" id="on-か"><h2>華 〔か〕</h2>
 <h3>華〇 — 華 first (4)</h3><ul class='words'>
-<li><div class="w"><span class="self">華</span><a href="50d1.html">僑</a></div><div class="r"><b>か</b>きょう</div><div class="g">overseas Chinese</div></li>
-<li><div class="w"><span class="self">華</span><a href="9053.html">道</a></div><div class="r"><b>か</b>どう</div><div class="g">flower arrangement; floral art; ikebana</div></li>
-<li><div class="w"><span class="self">華</span><a href="7f8e.html">美</a></div><div class="r"><b>か</b>び</div><div class="g">splendor; splendour; gorgeousness; pomp</div></li>
-<li><div class="w"><span class="self">華</span><a href="9e97.html">麗</a></div><div class="r"><b>か</b>れい</div><div class="g">splendid; magnificent; gorgeous</div></li>
+<li class="lv5" data-lv="5"><span class="badge">Rare</span><div class="w"><span class="self">華</span><a href="50d1.html">僑</a></div><div class="r"><b>か</b>きょう</div><div class="g">overseas Chinese</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">華</span><a href="9053.html">道</a></div><div class="r"><b>か</b>どう</div><div class="g">flower arrangement; floral art; ikebana</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">華</span><a href="7f8e.html">美</a></div><div class="r"><b>か</b>び</div><div class="g">splendor; splendour; gorgeousness; pomp</div></li>
+<li class="lv4" data-lv="4"><span class="badge">Advanced</span><div class="w"><span class="self">華</span><a href="9e97.html">麗</a></div><div class="r"><b>か</b>れい</div><div class="g">splendid; magnificent; gorgeous</div></li>
 </ul>
 <h3>〇華 — 華 second (2)</h3><ul class='words'>
-<li><div class="w"><a href="8c6a.html">豪</a><span class="self">華</span></div><div class="r">ごう<b>か</b></div><div class="g">extravagant; lavish; opulent; luxurious</div></li>
-<li><div class="w"><a href="4e2d.html">中</a><span class="self">華</span></div><div class="r">ちゅう<b>か</b></div><div class="g">China; Chinese food</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><a href="8c6a.html">豪</a><span class="self">華</span></div><div class="r">ごう<b>か</b></div><div class="g">extravagant; lavish; opulent; luxurious</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><a href="4e2d.html">中</a><span class="self">華</span></div><div class="r">ちゅう<b>か</b></div><div class="g">China; Chinese food</div></li>
 </ul>
 </section>
+<script>
+document.querySelectorAll('.legend button').forEach(b=>b.addEventListener('click',()=>{
+ b.classList.toggle('off');
+ const off=[...document.querySelectorAll('.legend button.off')].map(x=>x.dataset.lv);
+ document.querySelectorAll('ul.words li').forEach(li=>li.classList.toggle('hidden',off.includes(li.dataset.lv)));
+}));
+</script>
 <footer class="muted" style="margin-top:48px;font-size:12px">
 Data: <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> &amp;
 <a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project">KANJIDIC2</a>

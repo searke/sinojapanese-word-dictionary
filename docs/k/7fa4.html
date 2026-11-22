@@ -5,19 +5,27 @@
 <body><main>
 <header class="site"><a href="../index.html">漢語 · Sino-Japanese explorer</a>
 <span class="muted">音読み index</span></header>
-<div class="hero"><div class="big">群</div><div><h1 style="margin:0">flock, group, crowd, herd, swarm</h1><p class="muted" style="margin:4px 0 8px">grade 4 · old JLPT 2 · 13 strokes · 6 words</p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-ぐん">ぐん</a></dd><dt>Kun'yomi</dt><dd>む.れる、む.れ、むら、むら.がる</dd></dl></div></div>
+<div class="hero"><div class="big">群</div><div><h1 style="margin:0">flock, group, crowd, herd, swarm</h1><p class="muted" style="margin:4px 0 8px">grade 4 · old JLPT 2 · 13 strokes · 6 words</p><p class="lv2" style="margin:0 0 10px"><span class="lvlpill">Kanji level: Elementary</span></p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-ぐん">ぐん</a></dd><dt>Kun'yomi</dt><dd>む.れる、む.れ、むら、むら.がる</dd></dl></div></div>
+<div class="legend"><button class="lv1" data-lv="1" title="the ~250 most basic kanji (old JLPT 4–3)"><i></i>Beginner</button><button class="lv2" data-lv="2" title="taught in Japanese elementary school"><i></i>Elementary</button><button class="lv3" data-lv="3" title="secondary-school jōyō kanji in common use"><i></i>Intermediate</button><button class="lv4" data-lv="4" title="the remaining jōyō kanji"><i></i>Advanced</button><button class="lv5" data-lv="5" title="uses a kanji outside the jōyō list"><i></i>Rare</button><span class="muted" style="font-size:12px">Word level = its hardest kanji. Click to hide/show a level.</span></div>
 <section class="on" id="on-ぐん"><h2>群 〔ぐん〕</h2>
 <h3>群〇 — 群 first (4)</h3><ul class='words'>
-<li><div class="w"><span class="self">群</span><a href="8846.html">衆</a></div><div class="r"><b>ぐん</b>しゅう</div><div class="g">group (of people); crowd; horde; throng</div></li>
-<li><div class="w"><span class="self">群</span><a href="96c6.html">集</a></div><div class="r"><b>ぐん</b>しゅう</div><div class="g">crowd; community; group; herd</div></li>
-<li><div class="w"><span class="self">群</span><a href="50cf.html">像</a></div><div class="r"><b>ぐん</b>ぞう</div><div class="g">lively group (esp. of young people); dynamic bunch; group</div></li>
-<li><div class="w"><span class="self">群</span><a href="5cf6.html">島</a></div><div class="r"><b>ぐん</b>とう</div><div class="g">island group; archipelago</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">群</span><a href="8846.html">衆</a></div><div class="r"><b>ぐん</b>しゅう</div><div class="g">group (of people); crowd; horde; throng</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">群</span><a href="96c6.html">集</a></div><div class="r"><b>ぐん</b>しゅう</div><div class="g">crowd; community; group; herd</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">群</span><a href="50cf.html">像</a></div><div class="r"><b>ぐん</b>ぞう</div><div class="g">lively group (esp. of young people); dynamic bunch; group</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">群</span><a href="5cf6.html">島</a></div><div class="r"><b>ぐん</b>とう</div><div class="g">island group; archipelago</div></li>
 </ul>
 <h3>〇群 — 群 second (2)</h3><ul class='words'>
-<li><div class="w"><a href="9b5a.html">魚</a><span class="self">群</span></div><div class="r">ぎょ<b>ぐん</b></div><div class="g">school of fish; shoal of fish</div></li>
-<li><div class="w"><a href="629c.html">抜</a><span class="self">群</span></div><div class="r">ばつ<b>ぐん</b></div><div class="g">outstanding; excellent; exceptional; distinguished</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><a href="9b5a.html">魚</a><span class="self">群</span></div><div class="r">ぎょ<b>ぐん</b></div><div class="g">school of fish; shoal of fish</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><a href="629c.html">抜</a><span class="self">群</span></div><div class="r">ばつ<b>ぐん</b></div><div class="g">outstanding; excellent; exceptional; distinguished</div></li>
 </ul>
 </section>
+<script>
+document.querySelectorAll('.legend button').forEach(b=>b.addEventListener('click',()=>{
+ b.classList.toggle('off');
+ const off=[...document.querySelectorAll('.legend button.off')].map(x=>x.dataset.lv);
+ document.querySelectorAll('ul.words li').forEach(li=>li.classList.toggle('hidden',off.includes(li.dataset.lv)));
+}));
+</script>
 <footer class="muted" style="margin-top:48px;font-size:12px">
 Data: <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> &amp;
 <a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project">KANJIDIC2</a>

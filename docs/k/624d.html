@@ -5,19 +5,27 @@
 <body><main>
 <header class="site"><a href="../index.html">漢語 · Sino-Japanese explorer</a>
 <span class="muted">音読み index</span></header>
-<div class="hero"><div class="big">才</div><div><h1 style="margin:0">genius, years old, cubic shaku</h1><p class="muted" style="margin:4px 0 8px">grade 2 · old JLPT 2 · 3 strokes · 6 words</p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-さい">さい</a></dd></dl></div></div>
+<div class="hero"><div class="big">才</div><div><h1 style="margin:0">genius, years old, cubic shaku</h1><p class="muted" style="margin:4px 0 8px">grade 2 · old JLPT 2 · 3 strokes · 6 words</p><p class="lv2" style="margin:0 0 10px"><span class="lvlpill">Kanji level: Elementary</span></p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-さい">さい</a></dd></dl></div></div>
+<div class="legend"><button class="lv1" data-lv="1" title="the ~250 most basic kanji (old JLPT 4–3)"><i></i>Beginner</button><button class="lv2" data-lv="2" title="taught in Japanese elementary school"><i></i>Elementary</button><button class="lv3" data-lv="3" title="secondary-school jōyō kanji in common use"><i></i>Intermediate</button><button class="lv4" data-lv="4" title="the remaining jōyō kanji"><i></i>Advanced</button><button class="lv5" data-lv="5" title="uses a kanji outside the jōyō list"><i></i>Rare</button><span class="muted" style="font-size:12px">Word level = its hardest kanji. Click to hide/show a level.</span></div>
 <section class="on" id="on-さい"><h2>才 〔さい〕</h2>
 <h3>才〇 — 才 first (1)</h3><ul class='words'>
-<li><div class="w"><span class="self">才</span><a href="80fd.html">能</a></div><div class="r"><b>さい</b>のう</div><div class="g">talent; ability</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><span class="self">才</span><a href="80fd.html">能</a></div><div class="r"><b>さい</b>のう</div><div class="g">talent; ability</div></li>
 </ul>
 <h3>〇才 — 才 second (5)</h3><ul class='words'>
-<li><div class="w"><a href="9b3c.html">鬼</a><span class="self">才</span></div><div class="r">き<b>さい</b></div><div class="g">wizard; genius; remarkable talent; exceptional ability</div></li>
-<li><div class="w"><a href="79c0.html">秀</a><span class="self">才</span></div><div class="r">しゅう<b>さい</b></div><div class="g">bright person; talented student; prodigy</div></li>
-<li><div class="w"><a href="591a.html">多</a><span class="self">才</span></div><div class="r">た<b>さい</b></div><div class="g">talented</div></li>
-<li><div class="w"><a href="5929.html">天</a><span class="self">才</span></div><div class="r">てん<b>さい</b></div><div class="g">genius; prodigy; natural gift</div></li>
-<li><div class="w"><a href="6f2b.html">漫</a><span class="self">才</span></div><div class="r">まん<b>ざい</b></div><div class="g">manzai; comic dialogue; two-person comedy act, usu. presented as a fast-paced dialogue, occ. presented as a skit</div></li>
+<li class="lv4" data-lv="4"><span class="badge">Advanced</span><div class="w"><a href="9b3c.html">鬼</a><span class="self">才</span></div><div class="r">き<b>さい</b></div><div class="g">wizard; genius; remarkable talent; exceptional ability</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><a href="79c0.html">秀</a><span class="self">才</span></div><div class="r">しゅう<b>さい</b></div><div class="g">bright person; talented student; prodigy</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><a href="591a.html">多</a><span class="self">才</span></div><div class="r">た<b>さい</b></div><div class="g">talented</div></li>
+<li class="lv2" data-lv="2"><span class="badge">Elementary</span><div class="w"><a href="5929.html">天</a><span class="self">才</span></div><div class="r">てん<b>さい</b></div><div class="g">genius; prodigy; natural gift</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><a href="6f2b.html">漫</a><span class="self">才</span></div><div class="r">まん<b>ざい</b></div><div class="g">manzai; comic dialogue; two-person comedy act, usu. presented as a fast-paced dialogue, occ. presented as a skit</div></li>
 </ul>
 </section>
+<script>
+document.querySelectorAll('.legend button').forEach(b=>b.addEventListener('click',()=>{
+ b.classList.toggle('off');
+ const off=[...document.querySelectorAll('.legend button.off')].map(x=>x.dataset.lv);
+ document.querySelectorAll('ul.words li').forEach(li=>li.classList.toggle('hidden',off.includes(li.dataset.lv)));
+}));
+</script>
 <footer class="muted" style="margin-top:48px;font-size:12px">
 Data: <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> &amp;
 <a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project">KANJIDIC2</a>

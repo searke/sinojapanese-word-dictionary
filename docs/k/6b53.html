@@ -5,16 +5,24 @@
 <body><main>
 <header class="site"><a href="../index.html">漢語 · Sino-Japanese explorer</a>
 <span class="muted">音読み index</span></header>
-<div class="hero"><div class="big">歓</div><div><h1 style="margin:0">delight, joy</h1><p class="muted" style="margin:4px 0 8px">grade 8 · old JLPT 1 · 15 strokes · 5 words</p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-かん">かん</a></dd><dt>Kun'yomi</dt><dd>よろこ.ぶ</dd></dl></div></div>
+<div class="hero"><div class="big">歓</div><div><h1 style="margin:0">delight, joy</h1><p class="muted" style="margin:4px 0 8px">grade 8 · old JLPT 1 · 15 strokes · 5 words</p><p class="lv3" style="margin:0 0 10px"><span class="lvlpill">Kanji level: Intermediate</span></p><dl class="meta"><dt>On'yomi used here</dt><dd><a class="on-tag" href="#on-かん">かん</a></dd><dt>Kun'yomi</dt><dd>よろこ.ぶ</dd></dl></div></div>
+<div class="legend"><button class="lv1" data-lv="1" title="the ~250 most basic kanji (old JLPT 4–3)"><i></i>Beginner</button><button class="lv2" data-lv="2" title="taught in Japanese elementary school"><i></i>Elementary</button><button class="lv3" data-lv="3" title="secondary-school jōyō kanji in common use"><i></i>Intermediate</button><button class="lv4" data-lv="4" title="the remaining jōyō kanji"><i></i>Advanced</button><button class="lv5" data-lv="5" title="uses a kanji outside the jōyō list"><i></i>Rare</button><span class="muted" style="font-size:12px">Word level = its hardest kanji. Click to hide/show a level.</span></div>
 <section class="on" id="on-かん"><h2>歓 〔かん〕</h2>
 <h3>歓〇 — 歓 first (5)</h3><ul class='words'>
-<li><div class="w"><span class="self">歓</span><a href="559c.html">喜</a></div><div class="r"><b>かん</b>き</div><div class="g">delight; great joy</div></li>
-<li><div class="w"><span class="self">歓</span><a href="8fce.html">迎</a></div><div class="r"><b>かん</b>げい</div><div class="g">welcome; (warm) reception</div></li>
-<li><div class="w"><span class="self">歓</span><a href="58f0.html">声</a></div><div class="r"><b>かん</b>せい</div><div class="g">cheer; shout of joy</div></li>
-<li><div class="w"><span class="self">歓</span><a href="5f85.html">待</a></div><div class="r"><b>かん</b>たい</div><div class="g">warm welcome; friendly reception; hospitality; entertainment</div></li>
-<li><div class="w"><span class="self">歓</span><a href="8ac7.html">談</a></div><div class="r"><b>かん</b>だん</div><div class="g">pleasant talk; chat</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">歓</span><a href="559c.html">喜</a></div><div class="r"><b>かん</b>き</div><div class="g">delight; great joy</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">歓</span><a href="8fce.html">迎</a></div><div class="r"><b>かん</b>げい</div><div class="g">welcome; (warm) reception</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">歓</span><a href="58f0.html">声</a></div><div class="r"><b>かん</b>せい</div><div class="g">cheer; shout of joy</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">歓</span><a href="5f85.html">待</a></div><div class="r"><b>かん</b>たい</div><div class="g">warm welcome; friendly reception; hospitality; entertainment</div></li>
+<li class="lv3" data-lv="3"><span class="badge">Intermediate</span><div class="w"><span class="self">歓</span><a href="8ac7.html">談</a></div><div class="r"><b>かん</b>だん</div><div class="g">pleasant talk; chat</div></li>
 </ul>
 </section>
+<script>
+document.querySelectorAll('.legend button').forEach(b=>b.addEventListener('click',()=>{
+ b.classList.toggle('off');
+ const off=[...document.querySelectorAll('.legend button.off')].map(x=>x.dataset.lv);
+ document.querySelectorAll('ul.words li').forEach(li=>li.classList.toggle('hidden',off.includes(li.dataset.lv)));
+}));
+</script>
 <footer class="muted" style="margin-top:48px;font-size:12px">
 Data: <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> &amp;
 <a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project">KANJIDIC2</a>
