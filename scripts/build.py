@@ -15,6 +15,8 @@ import shutil
 from collections import defaultdict
 from pathlib import Path
 
+import graph
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 OUT = ROOT / "docs"
@@ -239,6 +241,23 @@ background:var(--card);color:var(--fg);border-radius:99px;padding:2px 10px}
 .legend [data-lv] i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--lc);margin-right:6px}
 .how{margin-top:10px;font-size:14px}.how summary{cursor:pointer;color:var(--accent)}
 .how ul{margin:6px 0;padding-left:20px}.how p{margin:6px 0}
+header.site{flex-wrap:wrap}
+nav.top{display:flex;gap:14px;font-size:14px}nav.top a{color:var(--muted);font-weight:500}
+nav.top a:hover{color:var(--accent)}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.pill2{display:inline-block;border:1px solid var(--line);background:var(--card);border-radius:99px;
+padding:0 10px;font-size:13px;font-weight:600}.pill2:hover{border-color:var(--accent)}
+.hoods{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;margin-top:16px}
+.hood{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:block}
+.hood:hover{border-color:var(--accent)}
+.hood h3{margin:0;font-size:17px;color:var(--fg)}
+.hood .hub{font-size:34px;float:right;line-height:1;font-family:"Hiragino Mincho ProN","Noto Serif JP",serif;color:var(--accent)}
+.hood .ks{font-size:20px;letter-spacing:3px;margin-top:6px;font-family:"Hiragino Mincho ProN","Noto Serif JP",serif;
+overflow-wrap:anywhere}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:16px 0}
+.stats div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.stats b{display:block;font-size:22px}.stats span{font-size:12px;color:var(--muted)}
+.islands{display:flex;flex-wrap:wrap;gap:8px}
 .lvlpill{display:inline-block;color:#fff;background:var(--lc);border-radius:99px;padding:0 10px;font-size:13px;font-weight:600}
 """
 
@@ -259,7 +278,8 @@ def page(title, body, depth):
 <title>{esc(title)}</title><link rel="stylesheet" href="{up}style.css"></head>
 <body><main>
 <header class="site"><a href="{up}index.html">漢語 · Sino-Japanese explorer</a>
-<span class="muted">音読み index</span></header>
+<nav class="top"><a href="{up}index.html">音読み</a><a href="{up}neighbourhoods.html">Neighbourhoods</a>
+<a href="{up}core.html">Core 257</a></nav></header>
 {body}
 <footer class="muted" style="margin-top:48px;font-size:12px">
 Data: <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> &amp;
@@ -282,6 +302,8 @@ def word_li(word, key, pages, depth_prefix=""):
         rd = f"<b>{esc(p1)}</b>{esc(p2)}"
     else:
         rd = f"{esc(p1)}<b>{esc(p2)}</b>"
+    if key is None:
+        rd = esc(p1 + p2)
     if word["w"][0] == key and word["w"][1] == key:
         rd = f"<b>{esc(p1)}{esc(p2)}</b>"
     gloss = "; ".join(word["gloss"])
@@ -320,6 +342,104 @@ document.querySelectorAll('.legend button').forEach(b=>b.addEventListener('click
 </script>"""
 
 
+def tile(c, n, kinfo, prefix):
+    return (f'<a class="lv{kinfo[c]["lvl"]}" href="{prefix}{kpath(c)}" data-k="{esc(c)}" '
+            f'title="{esc(", ".join(kinfo[c]["meanings"][:3]))}"><span>{esc(c)}</span><small>{n}</small></a>')
+
+
+def graph_pills(c, G):
+    node = G["kanji"].get(c)
+    if not node:
+        return '<a class="pill2" href="../neighbourhoods.html#islands">🏝 Island pair</a>'
+    h = G["neighbourhoods"][node["hood"] - 1]
+    out = f'<a class="pill2" href="../n/{h["id"]}.html">🏘 {esc(h["hub"])} · {esc(h["name"])}</a>'
+    if node["core"]:
+        out += '<a class="pill2" href="../core.html">★ Core kanji</a>'
+    return out
+
+
+def build_graph_pages(G, words, kinfo, pages):
+    (OUT / "n").mkdir()
+    (OUT / "graph.json").write_text(json.dumps(G, ensure_ascii=False, indent=1), "utf-8")
+    S = G["summary"]
+    hoods = G["neighbourhoods"]
+    hood_of = {c: v["hood"] for c, v in G["kanji"].items()}
+
+    def hood_link(h, prefix=""):
+        return f'<a class="pill2" href="{prefix}{h["id"]}.html">{esc(h["hub"])} · {esc(h["name"])}</a>'
+
+    # ---- overview page
+    stats = [(S["giant"], f'of {S["kanji"]} kanji in one connected web'),
+             (S["avg_path"], "average steps between two kanji"),
+             (S["diameter"], "most steps between any two kanji"),
+             (S["neighbourhoods"], "neighbourhoods"),
+             (S["core_size"], f'core kanji (each linked to ≥{S["core_k"]} others in the core)'),
+             (S["islands"], "island pairs, cut off from the rest")]
+    body = ["<h1>Kanji neighbourhoods</h1>",
+            "<p class='muted'>Think of every kanji as a town and every two-kanji word as a road "
+            "between two towns. Nearly all kanji end up in one big web, and the web falls naturally "
+            "into neighbourhoods: groups of kanji that form far more words with each other than with "
+            "the rest. The groups were found automatically (Louvain community detection); "
+            "the names are hand-picked to fit.</p>",
+            '<div class="stats">' + "".join(f"<div><b>{v}</b><span>{esc(t)}</span></div>" for v, t in stats)
+            + "</div>", '<div class="hoods">']
+    for h in hoods:
+        body.append(f'<a class="hood" href="n/{h["id"]}.html"><span class="hub">{esc(h["hub"])}</span>'
+                    f'<h3>{esc(h["name"])}</h3><span class="muted" style="font-size:13px">'
+                    f'{len(h["kanji"])} kanji</span><div class="ks">{esc("".join(h["kanji"][:16]))}…</div></a>')
+    body.append("</div>")
+    body.append('<h2 id="islands" style="margin-top:40px">🏝 Islands</h2><p class="muted">These kanji pairs '
+                "make words only with each other, so they're cut off from the rest of the web.</p>"
+                '<ul class="words">')
+    by_pair = {frozenset(w["w"]): w for w in words}
+    for isl in G["islands"]:
+        for w in sorted({by_pair[frozenset((a, b))]["w"]: by_pair[frozenset((a, b))]
+                         for a in isl for b in isl if a != b and frozenset((a, b)) in by_pair}.values(),
+                        key=lambda w: w["r"]):
+            body.append(word_li(w, None, pages, "k/"))
+    body.append("</ul>")
+    (OUT / "neighbourhoods.html").write_text(page("Kanji neighbourhoods", "\n".join(body), 0), "utf-8")
+
+    # ---- one page per neighbourhood
+    for h in hoods:
+        members = set(h["kanji"])
+        inner = [w for w in words if all(c in members for c in w["w"])]
+        inner.sort(key=lambda w: (w["lvl"], kana_key(w["r"])))
+        tiles = "".join(tile(c, G["kanji"][c]["inner_degree"], kinfo, "../k/") for c in h["kanji"])
+        near = " ".join(hood_link(hoods[o - 1]) for o in h["neighbours"])
+        body = [f'<div class="hero"><div class="big">{esc(h["hub"])}</div><div>'
+                f'<h1 style="margin:0">{esc(h["name"])}</h1>'
+                f'<p class="muted">{len(h["kanji"])} kanji · {len(inner)} words made entirely inside this '
+                f'neighbourhood. Hub: {esc(h["hub"])}, its best-connected kanji.</p>'
+                f'<div class="pills"><span class="muted" style="font-size:13px">Next door:</span> {near}</div>'
+                f'</div></div>',
+                "<h3>Kanji here (number = words it makes with others in this neighbourhood)</h3>",
+                f'<div class="kl">{tiles}</div>',
+                f"<h2 style='margin-top:32px'>Words inside {esc(h['name'])}</h2>", legend(True),
+                "<ul class='words' style='margin-top:12px'>"]
+        body += [word_li(w, None, pages, "../k/") for w in inner]
+        body.append("</ul>" + FILTER_JS)
+        (OUT / "n" / f'{h["id"]}.html').write_text(page(f'{h["hub"]} · {h["name"]}', "\n".join(body), 1), "utf-8")
+
+    # ---- core page
+    core = [c for c, v in G["kanji"].items() if v["core"]]
+    body = [f"<h1>The core {len(core)}</h1>",
+            f"<p class='muted'>The densest part of the web: each of these kanji makes words with at least "
+            f"{S['core_k']} others in this same group (the graph's maximum <i>k-core</i>). Learn these and "
+            "most Sino-Japanese words are one step away. Grouped by neighbourhood; the number is how "
+            "many words the kanji makes in total.</p>", legend(False)]
+    for h in hoods:
+        cs = [c for c in h["kanji"] if c in core]
+        if not cs:
+            continue
+        cs.sort(key=lambda c: -G["kanji"][c]["degree"])
+        body.append(f'<div class="reading"><div class="rk" style="width:auto;min-width:72px">'
+                    f'<a href="n/{h["id"]}.html">{esc(h["hub"])} · {esc(h["name"])}</a></div></div>'
+                    f'<div class="kl" style="margin-bottom:12px">'
+                    + "".join(tile(c, G["kanji"][c]["degree"], kinfo, "k/") for c in cs) + "</div>")
+    (OUT / "core.html").write_text(page(f"The core {len(core)} kanji", "\n".join(body), 0), "utf-8")
+
+
 def build():
     kinfo = load_kanji()
     words = load_words(kinfo)
@@ -331,6 +451,7 @@ def build():
         by_kanji[a][w["on"][0]]["first"].append(w)
         by_kanji[b][w["on"][1]]["second"].append(w)
     pages = set(by_kanji)
+    G = graph.analyse(words)
 
     if OUT.exists():
         shutil.rmtree(OUT)
@@ -362,8 +483,8 @@ def build():
         body = [f'<div class="hero"><div class="big">{esc(c)}</div><div>'
                 f'<h1 style="margin:0">{esc(", ".join(info["meanings"][:5]))}</h1>'
                 f'<p class="muted" style="margin:4px 0 8px">{esc(" · ".join(bits))}</p>'
-                f'<p class="lv{klv}" style="margin:0 0 10px"><span class="lvlpill">'
-                f'Kanji level: {LEVELS[klv][0]}</span></p>'
+                f'<div class="pills"><span class="lv{klv}"><span class="lvlpill">'
+                f'Kanji level: {LEVELS[klv][0]}</span></span>{graph_pills(c, G)}</div>'
                 f'<dl class="meta">{"".join(meta)}</dl></div></div>',
                 legend(True)]
         for o in order:
@@ -424,6 +545,8 @@ document.querySelectorAll('.row').forEach(row=>row.classList.toggle('hidden',
  !row.querySelector('.reading:not(.hidden)')));});
 </script>""")
     (OUT / "index.html").write_text(page("漢語の森 — Sino-Japanese explorer", "\n".join(body), 0), "utf-8")
+    build_graph_pages(G, words, kinfo, pages)
+    print(f"{len(G['neighbourhoods'])} neighbourhoods, {G['summary']['core_size']} core kanji")
     print(f"built {len(pages)} kanji pages, {len(words)} words → {OUT}")
 
 

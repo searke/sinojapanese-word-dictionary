@@ -60,4 +60,21 @@ background:var(--card);color:var(--fg);border-radius:99px;padding:2px 10px}
 .legend [data-lv] i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--lc);margin-right:6px}
 .how{margin-top:10px;font-size:14px}.how summary{cursor:pointer;color:var(--accent)}
 .how ul{margin:6px 0;padding-left:20px}.how p{margin:6px 0}
+header.site{flex-wrap:wrap}
+nav.top{display:flex;gap:14px;font-size:14px}nav.top a{color:var(--muted);font-weight:500}
+nav.top a:hover{color:var(--accent)}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.pill2{display:inline-block;border:1px solid var(--line);background:var(--card);border-radius:99px;
+padding:0 10px;font-size:13px;font-weight:600}.pill2:hover{border-color:var(--accent)}
+.hoods{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;margin-top:16px}
+.hood{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:block}
+.hood:hover{border-color:var(--accent)}
+.hood h3{margin:0;font-size:17px;color:var(--fg)}
+.hood .hub{font-size:34px;float:right;line-height:1;font-family:"Hiragino Mincho ProN","Noto Serif JP",serif;color:var(--accent)}
+.hood .ks{font-size:20px;letter-spacing:3px;margin-top:6px;font-family:"Hiragino Mincho ProN","Noto Serif JP",serif;
+overflow-wrap:anywhere}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:16px 0}
+.stats div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.stats b{display:block;font-size:22px}.stats span{font-size:12px;color:var(--muted)}
+.islands{display:flex;flex-wrap:wrap;gap:8px}
 .lvlpill{display:inline-block;color:#fff;background:var(--lc);border-radius:99px;padding:0 10px;font-size:13px;font-weight:600}
