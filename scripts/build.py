@@ -237,6 +237,8 @@ border-radius:99px;padding:1px 8px;margin-top:6px}
 background:var(--card);color:var(--fg);border-radius:99px;padding:2px 10px}
 .legend button.off{opacity:.35;text-decoration:line-through}
 .legend [data-lv] i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--lc);margin-right:6px}
+.how{margin-top:10px;font-size:14px}.how summary{cursor:pointer;color:var(--accent)}
+.how ul{margin:6px 0;padding-left:20px}.how p{margin:6px 0}
 .lvlpill{display:inline-block;color:#fff;background:var(--lc);border-radius:99px;padding:0 10px;font-size:13px;font-weight:600}
 """
 
@@ -296,7 +298,17 @@ def legend(toggle):
         for n, (name, d) in LEVELS.items())
     hint = ("Word level = its hardest kanji. Click to hide/show a level."
             if toggle else "Tile colour = kanji difficulty.")
-    return f'<div class="legend">{items}<span class="muted" style="font-size:12px">{hint}</span></div>'
+    rows = "".join(f"<li><b class='lv{n}' style='color:var(--lc)'>{esc(name)}</b> — {esc(d)}</li>"
+                   for n, (name, d) in LEVELS.items())
+    explain = (
+        "<details class='how'><summary>How are levels decided?</summary>"
+        "<p>Levels measure how easy a word is to <b>read</b>, not how common it is. "
+        "Each kanji gets a level from its Japanese school grade, its old JLPT level and how "
+        "often it appears in newspapers:</p><ul>" + rows + "</ul>"
+        "<p>A word's level is the level of its harder kanji. So 食事 is Beginner (both kanji "
+        "are basic), while 飽食 is Advanced because 飽 is a less common kanji.</p></details>")
+    return (f'<div class="legend">{items}<span class="muted" style="font-size:12px">{hint}</span></div>'
+            + explain)
 
 
 FILTER_JS = """<script>
