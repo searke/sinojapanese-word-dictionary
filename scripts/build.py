@@ -10,6 +10,7 @@ second (allowing the usual sound changes: っ gemination, rendaku, p-sounds).
 That split is what lets each kanji page group words by on'yomi.
 """
 import html
+import urllib.parse
 import json
 import shutil
 from collections import defaultdict
@@ -259,6 +260,9 @@ overflow-wrap:anywhere}
 .stats div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
 .stats b{display:block;font-size:22px}.stats span{font-size:12px;color:var(--muted)}
 .islands{display:flex;flex-wrap:wrap;gap:8px}
+.ext{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;margin-top:6px}
+.ext a{color:var(--accent);border-bottom:1px dotted var(--accent)}
+.big-ext{font-size:14px}
 .lvlpill{display:inline-block;color:#fff;background:var(--lc);border-radius:99px;padding:0 10px;font-size:13px;font-weight:600}
 """
 
@@ -283,10 +287,24 @@ def page(title, body, depth):
 <a href="{up}core.html">Core 257</a><a href="{up}map.html">Map</a></nav></header>
 {body}
 <footer class="muted" style="margin-top:48px;font-size:12px">
-Data: <a href="https://www.edrdg.org/jmdict/j_jmdict.html">JMdict</a> &amp;
-<a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project">KANJIDIC2</a>
-(EDRDG, CC BY-SA 4.0) via jmdict-simplified.</footer>
+This site uses the <a href="https://www.edrdg.org/wiki/index.php/JMdict-EDICT_Dictionary_Project">JMdict</a>
+and <a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project">KANJIDIC2</a> dictionary files.
+These files are the property of the <a href="https://www.edrdg.org/">Electronic Dictionary Research and
+Development Group</a>, and are used in conformance with the Group's
+<a href="https://www.edrdg.org/edrdg/licence.html">licence</a>.
+Site content is <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> ·
+<a href="{up}about.html">About &amp; credits</a></footer>
 </main></body></html>"""
+
+
+def q(s):
+    return urllib.parse.quote(s)
+
+
+def word_links(w):
+    return (f'<div class="ext"><a href="https://jisho.org/search/{q(w + " #sentences")}" target="_blank" rel="noopener">examples</a>'
+            f'<a href="https://jisho.org/search/{q(w)}" target="_blank" rel="noopener">Jisho</a>'
+            f'<a href="https://en.wiktionary.org/wiki/{q(w)}#Japanese" target="_blank" rel="noopener">Wiktionary</a></div>')
 
 
 def word_li(word, key, pages, depth_prefix=""):
@@ -311,7 +329,7 @@ def word_li(word, key, pages, depth_prefix=""):
     lv = word["lvl"]
     return (f'<li class="lv{lv}" data-lv="{lv}"><span class="badge">{LEVELS[lv][0]}</span>'
             f'<div class="w">{"".join(chars)}</div>'
-            f'<div class="r">{rd}</div><div class="g">{esc(gloss)}</div></li>')
+            f'<div class="r">{rd}</div><div class="g">{esc(gloss)}</div>{word_links(word["w"])}</li>')
 
 
 def legend(toggle):
@@ -444,6 +462,36 @@ def build_graph_pages(G, words, kinfo, pages):
     (OUT / "core.html").write_text(page(f"The core {len(core)} kanji", "\n".join(body), 0), "utf-8")
 
 
+ABOUT = """<h1>About &amp; credits</h1>
+<p>漢語の森 lets you wander through Sino-Japanese vocabulary one kanji at a time. Every page is generated
+by a small script from freely licensed dictionary data; the code is on
+<a href="https://github.com/searke/sinojapanese-word-dictionary" style="color:var(--accent)">GitHub</a>.</p>
+<h2>Dictionary data</h2>
+<p>This site uses the <a href="https://www.edrdg.org/wiki/index.php/JMdict-EDICT_Dictionary_Project">JMdict</a>
+(Japanese–English dictionary) and <a href="https://www.edrdg.org/wiki/index.php/KANJIDIC_Project">KANJIDIC2</a>
+(kanji dictionary) files. These files are the property of the
+<a href="https://www.edrdg.org/">Electronic Dictionary Research and Development Group</a>, and are used in
+conformance with the Group's <a href="https://www.edrdg.org/edrdg/licence.html">licence</a>, which is the
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0</a>
+licence.</p>
+<p>The files were read through the JSON editions made by
+<a href="https://github.com/scriptin/jmdict-simplified">jmdict-simplified</a> (same licence).</p>
+<h2>What was changed</h2>
+<p>Only two-kanji words from JMdict's common-word subset are shown, and only those whose reading splits into
+on'yomi. Glosses are shortened to the first few senses. Difficulty levels, neighbourhoods and the map are
+worked out by this site and are not part of the original data.</p>
+<h2>Licence of this site</h2>
+<p>Because it is built from CC BY-SA material, the content of this site (the generated pages and
+<code>graph.json</code>) is shared under the same
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> licence. The code that builds it
+is under the MIT licence; see the repository's <code>LICENSE</code> files.</p>
+<h2>Links out</h2>
+<p>Words link to <a href="https://jisho.org/">Jisho</a> (including its example sentences, which come from the
+<a href="https://tatoeba.org/">Tatoeba</a> project) and to <a href="https://en.wiktionary.org/">Wiktionary</a>.
+These are separate sites with their own terms.</p>
+<style>main h2{font-size:20px;margin-top:28px}main p a{color:var(--accent)}</style>"""
+
+
 def build():
     kinfo = load_kanji()
     words = load_words(kinfo)
@@ -489,7 +537,12 @@ def build():
                 f'<p class="muted" style="margin:4px 0 8px">{esc(" · ".join(bits))}</p>'
                 f'<div class="pills"><span class="lv{klv}"><span class="lvlpill">'
                 f'Kanji level: {LEVELS[klv][0]}</span></span>{graph_pills(c, G)}</div>'
-                f'<dl class="meta">{"".join(meta)}</dl></div></div>',
+                f'<dl class="meta">{"".join(meta)}'
+                f'<dt>Look it up</dt><dd class="ext big-ext">'
+                f'<a href="https://jisho.org/search/{q(c + " #kanji")}" target="_blank" rel="noopener">Jisho kanji page</a>'
+                f'<a href="https://jisho.org/search/{q("*" + c + "*")}" target="_blank" rel="noopener">all words with {esc(c)} on Jisho</a>'
+                f'<a href="https://en.wiktionary.org/wiki/{q(c)}" target="_blank" rel="noopener">Wiktionary</a></dd>'
+                f'</dl></div></div>',
                 legend(True)]
         for o in order:
             g = groups[o]
@@ -550,6 +603,7 @@ document.querySelectorAll('.row').forEach(row=>row.classList.toggle('hidden',
 </script>""")
     (OUT / "index.html").write_text(page("漢語の森 — Sino-Japanese explorer", "\n".join(body), 0), "utf-8")
     build_graph_pages(G, words, kinfo, pages)
+    (OUT / "about.html").write_text(page("About & credits", ABOUT, 0), "utf-8")
     print(f"{len(G['neighbourhoods'])} neighbourhoods, {G['summary']['core_size']} core kanji")
     print(f"built {len(pages)} kanji pages, {len(words)} words → {OUT}")
 

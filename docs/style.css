@@ -77,6 +77,9 @@ overflow-wrap:anywhere}
 .stats div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
 .stats b{display:block;font-size:22px}.stats span{font-size:12px;color:var(--muted)}
 .islands{display:flex;flex-wrap:wrap;gap:8px}
+.ext{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;margin-top:6px}
+.ext a{color:var(--accent);border-bottom:1px dotted var(--accent)}
+.big-ext{font-size:14px}
 .lvlpill{display:inline-block;color:#fff;background:var(--lc);border-radius:99px;padding:0 10px;font-size:13px;font-weight:600}
 
 .mapwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}

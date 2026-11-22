@@ -33,7 +33,13 @@ Needs Python 3 and `networkx` (`pip install -r requirements.txt`). To publish it
 
 ## Data & license
 
-Dictionary data comes from [JMdict](https://www.edrdg.org/jmdict/j_jmdict.html) and
-[KANJIDIC2](https://www.edrdg.org/wiki/index.php/KANJIDIC_Project) by the Electronic Dictionary
-Research and Development Group, used under CC BY-SA 4.0, through the JSON builds from
-[jmdict-simplified](https://github.com/scriptin/jmdict-simplified).
+- **Dictionary data:** [JMdict](https://www.edrdg.org/wiki/index.php/JMdict-EDICT_Dictionary_Project) and
+  [KANJIDIC2](https://www.edrdg.org/wiki/index.php/KANJIDIC_Project). These files are the property of the
+  [Electronic Dictionary Research and Development Group](https://www.edrdg.org/) and are used in conformance
+  with the Group's [licence](https://www.edrdg.org/edrdg/licence.html) (CC BY-SA 4.0), via the JSON builds of
+  [jmdict-simplified](https://github.com/scriptin/jmdict-simplified).
+- **The generated site** (`docs/`) is shared under CC BY-SA 4.0: see `LICENSE-CONTENT.md`.
+  Every page carries the EDRDG attribution, and `docs/about.html` explains the sources and changes.
+- **The code** (`scripts/`) is under the MIT licence: see `LICENSE`.
+- Words link out to [Jisho](https://jisho.org/) (with example sentences from [Tatoeba](https://tatoeba.org/))
+  and [Wiktionary](https://en.wiktionary.org/).
